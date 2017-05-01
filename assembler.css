@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 textarea {
     display: none;
 }
@@ -21,20 +22,39 @@ body {
 }
 
 
+div {
+    float: left;
+}
+
+
 .glmol_window {
     background-color: black;
-    float: left;
     margin: 0;
     padding: 0;
 }
 
+
 #main_div {
-    float: left;
     background-color: blue;
     width: 50%;
     height: 70%;
-    padding: 0.5%;
+    padding: 0;
 }
+
+
+#main_title_div {
+    background-color: orange;
+    height: 6%;
+    width: 100%;
+}
+
+
+#main_window_div {
+    width: 100%;
+    height: 94%;
+    padding: 3%;
+}
+
 
 #main {
     width: 100%;
@@ -46,59 +66,59 @@ body {
 
 #bbs, #lks {
     background-color: red;
-    float: left;
     height: 70%;
     width: 24.5%;
 }
 
+
 #title_bb_div {
-    float: left;
     background-color: orange;
     height: 6%;
     width: 100%;
 }
 
 .bb_divs {
-    float: left;
     background-color: purple;
     height: 31.3333%;
     width: 50%;
     padding: 1%;
 }
 
+
 #sep {
-    float: left;
     background-color: red;
     height: 70%;
     width: 1%;
 }
 
+
 #topologies {
-    float: left;
     background-color: green;
     width: 100%;
     height: 30%;
 }
 
+
 #title_topology_div {
-    float: left;
     background-color: orange;
     height: 15%;
     width: 100%;
 }
+
 
 h1 {
     width: 100%;
     height: 100%;
 }
 
+
 .topologies_divs {
-    float: left;
     background-color: purple;
     height: 85%;
     width: 16.6666%;
     padding: 0.2%;
 }
+
 
 .topology_window {
     width: 100%;
