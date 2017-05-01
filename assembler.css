@@ -44,15 +44,18 @@ div {
 
 #main_title_div {
     background-color: orange;
-    height: 6%;
+    height: 10%;
     width: 100%;
 }
 
 
 #main_window_div {
     width: 100%;
-    height: 94%;
-    padding: 3%;
+    height: 90%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+    padding-top: 0%;
 }
 
 
