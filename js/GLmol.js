@@ -1649,6 +1649,7 @@ GLmol.prototype.defineRepresentation = function() {
    this.colorByChain(all);
 
    this.drawAtomsAsSphere(this.modelGroup, hetatm, this.sphereRadius);
+   this.drawBondsAsStick(this.modelGroup, hetatm, this.cylinderRadius / 2.0, this.cylinderRadius, true, true, 0.3);
    this.drawMainchainCurve(this.modelGroup, all, this.curveWidth, 'P');
    this.drawCartoon(this.modelGroup, all, this.curveWidth);
 };
