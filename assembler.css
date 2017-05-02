@@ -157,3 +157,8 @@ h1 {
     height: 100%;
     border-radius: 15px;
 }
+
+.selected {
+    border-style: solid;
+    border-color: red;
+}
