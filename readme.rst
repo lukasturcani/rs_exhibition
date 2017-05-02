@@ -1,5 +1,7 @@
 Download the project and open assembler.html in a browser. Should be relatively self explanatory.
 
+The software is released under the MIT license - see license.txt.
+
 This software uses GLMol, JQuery and JQueryUI.
 
 GLMol license.
