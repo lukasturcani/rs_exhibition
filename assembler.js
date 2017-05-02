@@ -1,14 +1,6 @@
 $(document).ready(function() {
 
     // Render molecules and topologies.
-    // var main = new GLmol('main');
-
-    var t1 = new GLmol('t1');
-    var t2 = new GLmol('t2');
-    var t3 = new GLmol('t3');
-    var t4 = new GLmol('t4');
-    var t5 = new GLmol('t5');
-    var t6 = new GLmol('t6');
 
     var lk1 = new GLmol('lk1');
     var lk2 = new GLmol('lk2');
@@ -24,7 +16,14 @@ $(document).ready(function() {
     var bb5 = new GLmol('bb5');
     var bb6 = new GLmol('bb6');
 
+    var t1 = new GLmol('t1');
+    var t2 = new GLmol('t2');
+    var t3 = new GLmol('t3');
+    var t4 = new GLmol('t4');
+    var t5 = new GLmol('t5');
+    var t6 = new GLmol('t6');
 
+    // var main = new GLmol('main');
 
 
 });

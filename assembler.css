@@ -106,13 +106,17 @@ button {
 
 
 #sep_div {
-    height: 70%;
+    height: 65%;
     width: 1%;
 }
 
 #sep {
+    margin: auto;
+    position:relative;
+    top:12%;
+    left:18%;
     background-color: #565656;
-    height: 100%;
+    height: 90%;
     width: 70%;
     border-radius: 5px;
 }
