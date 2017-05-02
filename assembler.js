@@ -9,20 +9,20 @@ $(document).ready(function() {
     var t4 = new GLmol('t4');
     var t5 = new GLmol('t5');
     var t6 = new GLmol('t6');
-    //
-    // var lk1 = new GLmol('lk1');
-    // var lk2 = new GLmol('lk2');
-    // var lk3 = new GLmol('lk3');
-    // var lk4 = new GLmol('lk4');
-    // var lk5 = new GLmol('lk5');
-    // var lk6 = new GLmol('lk6');
-    //
-    // var bb1 = new GLmol('bb1');
-    // var bb2 = new GLmol('bb2');
-    // var bb3 = new GLmol('bb3');
-    // var bb4 = new GLmol('bb4');
-    // var bb5 = new GLmol('bb5');
-    // var bb6 = new GLmol('bb6');
+
+    var lk1 = new GLmol('lk1');
+    var lk2 = new GLmol('lk2');
+    var lk3 = new GLmol('lk3');
+    var lk4 = new GLmol('lk4');
+    var lk5 = new GLmol('lk5');
+    var lk6 = new GLmol('lk6');
+
+    var bb1 = new GLmol('bb1');
+    var bb2 = new GLmol('bb2');
+    var bb3 = new GLmol('bb3');
+    var bb4 = new GLmol('bb4');
+    var bb5 = new GLmol('bb5');
+    var bb6 = new GLmol('bb6');
 
 
 
