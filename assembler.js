@@ -55,7 +55,7 @@ $(document).ready(function() {
                     top: $('#t1'),
                     unopt : "t1lk1bb1"}
 
-    $('.selectable').click(function() {
+    $('.selectable').on("click tap", function() {
         // Clicking on a selectable element, first locates the its
         // class. The highlighted element of the that class then has
         // the highlight removed. The clicked on element then gets
@@ -70,7 +70,7 @@ $(document).ready(function() {
         selected.unopt = cage_name;
     });
 
-    $('button').click(function() {
+    $('button').on("click tap", function() {
         main.loadMoleculeStr(false, opt_cages[selected.unopt]);
     });
 
