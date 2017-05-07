@@ -193,6 +193,7 @@ GLmol.prototype.parseSDF3000 = function(str) {
     var bond_block = false;
 
     for (var i = 0; i < lines.length; ++i) {
+        lines[i] = lines[i].trim();
         if (lines[i].includes("M  V30 BEGIN ATOM")) {
 			atom_block = true;
 			continue;
