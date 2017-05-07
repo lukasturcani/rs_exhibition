@@ -145,8 +145,29 @@ p {
 
 .main_div {
     height: 100%;
-    width: 100%;
+    width: 85%;
 }
+
+
+#options_div {
+    /*background-color: green;*/
+    height: 100%;
+    width: 15%;
+
+}
+
+
+.options_button_div {
+    height: 50%;
+    width: 100%;
+    padding: 10%;
+}
+
+.toggle {
+    background-color: blue;
+
+}
+
 
 .glmol_window {
     background-color: black;
