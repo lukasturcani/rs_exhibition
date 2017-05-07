@@ -6,10 +6,18 @@
     <script type="text/javascript" src="js/Three49custom.js"></script>
     <script type="text/javascript" src="js/GLmol.js"></script>
     <script type="text/javascript" src="assembler.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var prev_data = window.location.href.split('#');
+            prev_data = prev_data[prev_data.length-1];
+            $('#no_button').wrap('<a href="assembler6.html#' + prev_data +'0"></a>');
+            $('#yes_button').wrap('<a href="assembler6.html#' + prev_data +'1"></a>');
+        })
 
-    <link rel="stylesheet" type="text/css" href="assembler.css">
+    </script>
 
-    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="assembler.css"/>
+
     <title>Cage Assembler</title>
   </head>
   <body>
