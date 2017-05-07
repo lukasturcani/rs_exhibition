@@ -107,10 +107,38 @@ p {
 }
 
 
+.filler {
+    height: 100%;
+    width: 16.66665%;
+}
+
+
+#row1 {
+    position: inherit;
+    top: 0%;
+    height: 50%;
+    width: 100%;
+
+}
+
+
+#row2 {
+    position: inherit;
+    top: 50%;
+    height: 50%;
+    width: 100%
+}
+
+
 .glmol_div {
     height: 33.3333%;
     width: 33.3333%;
     padding: 1%;
+}
+
+.topology_div {
+    height: 100%;
+    width: 33.3333%;
 }
 
 .glmol_window {
