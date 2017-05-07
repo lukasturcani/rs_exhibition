@@ -74,6 +74,7 @@ p {
     display: table;
 }
 
+
 .title {
     font-size: 5.5em;
     font-family: sans-serif;
@@ -163,6 +164,7 @@ p {
     padding: 10%;
 }
 
+
 .toggle {
     background-color: blue;
 
@@ -183,20 +185,24 @@ p {
 
 }
 
+
 .big_button {
     height: 100%;
     width: 100%;
     border-radius: 0px;
 }
 
+
 #no_button {
     background-color: red;
 
 }
 
+
 #yes_button {
     background-color: green;
 }
+
 
 .big_button_text {
     font-size: 10em;
