@@ -16,7 +16,7 @@ html {
 
 
 body {
-    background-color: lightgray;
+    background-color: white;
     height: 100%;
 
 }
@@ -136,9 +136,16 @@ p {
     padding: 1%;
 }
 
+
 .topology_div {
     height: 100%;
     width: 33.3333%;
+}
+
+
+.main_div {
+    height: 100%;
+    width: 100%;
 }
 
 .glmol_window {
@@ -146,4 +153,29 @@ p {
     height: 100%;
     width: 100%;
     border-radius: 35px;
+}
+
+
+.big_button_div {
+    height: 100%;
+    width: 50%;
+
+}
+
+.big_button {
+    height: 100%;
+    width: 100%;
+}
+
+#no_button {
+    background-color: red;
+
+}
+
+#yes_button {
+    background-color: green;
+}
+
+.big_button_text {
+    font-size: 10em;
 }
