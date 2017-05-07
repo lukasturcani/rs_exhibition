@@ -1,41 +1,7 @@
 // The variables unopt_cages and opt_cages are defined in the file
 // "cagesfile".
 
-function removeHighlight(sel, lk, bb, top) {
-    if (lk) {
-        sel.lk.removeClass('selected');
-    }
-    if (bb) {
-        sel.bb.removeClass('selected');
-    }
-    if (top) {
-        sel.top.removeClass('selected');
-    }
-}
-
-function addHighlight(sel, item, lk, bb, top) {
-    if (lk) {
-        sel.lk = item;
-    }
-    if (bb) {
-        sel.bb = item;
-    }
-    if (top) {
-        sel.top = item;
-    }
-}
-
-{};
-
-$(document).ready(function() {
-
-    // Render molecules and topologies.
-
-    var selected = {lk : $('#lk1'),
-                    bb : $('#bb1'),
-                    top: $('#t1'),
-                    unopt : "t1lk1bb1"}
-
+function activateNext(){
     $("#next_button1").on("click touchstart", function() {
         $("body").load("assembler2.html");
     });
@@ -45,16 +11,27 @@ $(document).ready(function() {
     $("#next_button3").on("click touchstart", function() {
         $("body").load("assembler4.html");
     });
+}
+
+
+$(document).ready(function() {
+
+    // Render molecules and topologies.
+
     $("#next_button4").on("click touchstart", function() {
         $("body").load("assembler5.html");
     });
-    $("#no_button, #yes_button").on("click touchstart", function() {
+    $("#no_button").on("click touchstart", function() {
+        selected.prediction = "no";
+        $("body").load("assembler6.html");
+    });
+    $("#yes_button").on("click touchstart", function() {
+        selected.prediction = "yes";
         $("body").load("assembler6.html");
     });
     $("#next_button5").on("click touchstart", function() {
         $("body").load("assembler1.html");
     });
-
 
     $("#back_button1").on("click touchstart", function() {
         $("body").load("assembler1.html");
@@ -71,49 +48,24 @@ $(document).ready(function() {
 
 
     $("#pore_button").on("click touchstart", function() {
-
-        if ($(this).hasClass('selectedToggle')) {
-            $(this).fadeTo('fast', 0.5)
-        }
-        else {
-            $(this).fadeTo('fast', 1)
-        }
-
         $(this).toggleClass('selectedToggle');
 
     });
     $("#vdw_button").on("click touchstart", function() {
-
-        if ($(this).hasClass('selectedToggle')) {
-            $(this).fadeTo('fast', 0.5)
-        }
-        else {
-            $(this).fadeTo('fast', 1)
-        }
-
-        $(this).toggleClass('selectedToggle');
+        $(this).toggleClass("selectedToggle");
 
     });
 
 
-    // $('.selectable').on("click touchstart", function() {
-    //     // Clicking on a selectable element, first locates the its
-    //     // class. The highlighted element of the that class then has
-    //     // the highlight removed. The clicked on element then gets
-    //     // highlighted. Finally the cage displayed in the main window
-    //     // is reloaded.
-    //
-    //     removeHighlight(selected, $(this).hasClass('lk'), $(this).hasClass('bb'), $(this).hasClass('top'));
-    //     $(this).addClass('selected');
-    //     addHighlight(selected, $(this), $(this).hasClass('lk'), $(this).hasClass('bb'), $(this).hasClass('top'));
-    //     var cage_name = selected.top[0].id + selected.lk[0].id + selected.bb[0].id;
-    //     main.loadMoleculeStr(false, unopt_cages[cage_name]);
-    //     selected.unopt = cage_name;
-    // });
-    //
-    // $('button').on("click tap", function() {
-    //     main.loadMoleculeStr(false, opt_cages[selected.unopt]);
-    // });
+    $('.selectable').on("click touchstart", function() {
+        $('.selected').removeClass('selected');
+        $(this).addClass('selected');
+        c = [for (x of this.classList) if (x=='bb' || x=='lk' || x=='top') x][0]
+        selected[c] = this.id;
+
+        $('.next_button').addClass('ready');
+        activateNext();
+    });
 
 
 });

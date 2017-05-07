@@ -105,6 +105,14 @@ p {
 
 
 .next_button {
+    background-color: #7EBF7E;
+}
+
+#next_button4, #next_button5 {
+    background-color: green;
+}
+
+.ready {
     background-color: green;
 }
 
@@ -174,8 +182,13 @@ p {
 
 
 .toggle {
-    background-color: blue;
+    background-color: #7E7EFF;
 
+}
+
+
+.selectedToggle {
+    background-color: blue;
 }
 
 
@@ -216,5 +229,14 @@ p {
 
 .big_button_text {
     font-size: 10em;
+
+}
+
+
+.selected {
+    border-style: solid;
+    border-width: thick;
+    border-color: red;
+
 
 }

@@ -6,6 +6,12 @@
     <script src="js/Three49custom.js"></script>
     <script type="text/javascript" src="js/GLmol.js"></script>
     <script type="text/javascript" src="cagesfile"></script>
+    <script type="text/javascript">
+        var selected = {lk : undefined,
+                        bb : undefined,
+                        top: undefined,
+                        prediction: undefined}
+    </script>
     <script type="text/javascript" src="assembler.js"></script>
 
     <link rel="stylesheet" type="text/css" href="assembler.css">
@@ -31,14 +37,14 @@
         <div class="filler"></div>
 
         <div class="glmol_div topology_div">
-          <div id="1" class="glmol_window">
+          <div id="1" class="glmol_window selectable top">
             <textarea id="1_src">
             </textarea>
           </div>
         </div>
 
         <div class="glmol_div topology_div">
-          <div id="2" class="glmol_window">
+          <div id="2" class="glmol_window selectable top">
             <textarea id="2_src">
             </textarea>
           </div>
@@ -51,21 +57,21 @@
       <div id="row2">
 
         <div class="glmol_div topology_div">
-          <div id="3" class="glmol_window">
+          <div id="3" class="glmol_window selectable top">
             <textarea id="3_src">
             </textarea>
           </div>
         </div>
 
         <div class="glmol_div topology_div">
-          <div id="4" class="glmol_window">
+          <div id="4" class="glmol_window selectable top">
             <textarea id="4_src">
             </textarea>
           </div>
         </div>
 
         <div class="glmol_div topology_div">
-          <div id="5" class="glmol_window">
+          <div id="5" class="glmol_window selectable top">
             <textarea id="5_src">
             </textarea>
           </div>
