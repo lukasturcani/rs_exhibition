@@ -60,7 +60,7 @@ $(document).ready(function() {
     $('.selectable').on("click touchstart", function() {
         $('.selected').removeClass('selected');
         $(this).addClass('selected');
-        c = [for (x of this.classList) if (x=='bb' || x=='lk' || x=='top') x][0]
+        c = Array(this.classList).filter(function(x) { return (x=='bb' || x=='lk' || x=='top'); })[0];
         selected[c] = this.id;
 
         $('.next_button').addClass('ready');
