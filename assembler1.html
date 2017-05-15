@@ -32,7 +32,7 @@
           <div id="1" class="glmol_window selectable top">
             <textarea id="1_src">
 
-
+                twoplusthree
 
                   0  0  0     0  0            999 V3000
                 M  V30 BEGIN CTAB
@@ -54,7 +54,7 @@
           <div id="2" class="glmol_window selectable top">
             <textarea id="2_src">
 
-
+                tetrahdedron
 
                   0  0  0     0  0            999 V3000
                 M  V30 BEGIN CTAB
@@ -89,30 +89,32 @@
           <div id="3" class="glmol_window selectable top">
             <textarea id="3_src">
 
-
+                fourplussix2
 
                   0  0  0     0  0            999 V3000
                 M  V30 BEGIN CTAB
-                M  V30 COUNTS 10 6 0 0 0
+                M  V30 COUNTS 8 10 0 0 0
                 M  V30 BEGIN ATOM
-                M  V30 1 C 50 0 50 0
-                M  V30 2 C -50 0 50 0
-                M  V30 3 C 50 0 -50 0
-                M  V30 4 C -100 0 -100 0
-                M  V30 5 C 0 -50 50 0
-                M  V30 6 C 0 50 50 0
-                M  V30 7 C 0 -50 -50 0
-                M  V30 8 C 0 50 -50 0
-                M  V30 9 C 50 0 50 0
-                M  V30 10 C -50 0 50 0
+                M  V30 1 C 5 0 5 0
+                M  V30 2 C -5 0 5 0
+                M  V30 3 C 5 0 -5 0
+                M  V30 4 C -5 0 -5 0
+                M  V30 5 C 0 -5 5 0
+                M  V30 6 C 0 5 5 0
+                M  V30 7 C 0 -5 -5 0
+                M  V30 8 C 0 5 -5 0
                 M  V30 END ATOM
                 M  V30 BEGIN BOND
-                M  V30 1 1 1 2
-                M  V30 2 1 1 3
-                M  V30 3 1 1 4
-                M  V30 4 1 2 3
-                M  V30 5 1 2 4
-                M  V30 6 1 3 4
+                M  V30 1 1 1 5
+                M  V30 2 1 1 6
+                M  V30 3 1 2 5
+                M  V30 4 1 2 6
+                M  V30 5 1 1 3
+                M  V30 6 1 2 4
+                M  V30 7 1 3 7
+                M  V30 8 1 3 8
+                M  V30 9 1 4 7
+                M  V30 10 1 4 8
                 M  V30 END BOND
                 M  V30 END CTAB
                 M  END
@@ -123,6 +125,38 @@
         <div class="glmol_div topology_div">
           <div id="4" class="glmol_window selectable top">
             <textarea id="4_src">
+
+                eightplustwelve
+
+                0  0  0     0  0            999 V3000
+                M  V30 BEGIN CTAB
+                M  V30 COUNTS 8 12 0 0 0
+                M  V30 BEGIN ATOM
+                M  V30 1 C -5 5 -5
+                M  V30 2 C -5 -5 -5
+                M  V30 3 C 5 5 -5
+                M  V30 4 C 5 -5 -5
+                M  V30 5 C -5 5 5
+                M  V30 6 C -5 -5 5
+                M  V30 7 C 5 5 5
+                M  V30 8 C 5 -5 5
+                M  V30 END ATOM
+                M  V30 BEGIN BOND
+                M  V30 1 1 1 2
+                M  V30 2 1 1 3
+                M  V30 3 1 1 5
+                M  V30 4 1 2 4
+                M  V30 5 1 2 6
+                M  V30 6 1 3 4
+                M  V30 7 1 3 7
+                M  V30 8 1 4 8
+                M  V30 9 1 5 6
+                M  V30 10 1 7 8
+                M  V30 11 1 7 5
+                M  V30 12 1 6 8
+                M  V30 END BOND
+                M  V30 END CTAB
+                M  END
             </textarea>
           </div>
         </div>
@@ -130,6 +164,69 @@
         <div class="glmol_div topology_div">
           <div id="5" class="glmol_window selectable top">
             <textarea id="5_src">
+
+                dodecahderon
+
+                0  0  0     0  0            999 V3000
+                M  V30 BEGIN CTAB
+                M  V30 COUNTS 20 30 0 0 0
+                M  V30 BEGIN ATOM
+                M  V30 1 C 16.18 0.0 6.18
+                M  V30 2 C -16.18 0.0 6.18
+                M  V30 3 C -16.18 0.0 -6.18
+                M  V30 4 C 16.18 0.0 -6.18
+                M  V30 5 C 6.18 16.18 0.0
+                M  V30 6 C 6.18 -16.18 0.0
+                M  V30 7 C -6.18 -16.18 0.0
+                M  V30 8 C -6.18 16.18 0.0
+                M  V30 9 C 0.0 6.18  16.18
+                M  V30 10 C 0.0 6.18  -16.18
+                M  V30 11 C 0.0 -6.18  -16.18
+                M  V30 12 C 0.0 -6.18  16.18
+                M  V30 13 C 10 10  10
+                M  V30 14 C  10 -10  10
+                M  V30 15 C -10 -10  10
+                M  V30 16 C -10 10  10
+                M  V30 17 C -10 10 -10
+                M  V30 18 C  10 10 -10
+                M  V30 19 C 10 -10 -10
+                M  V30 20 C -10 -10 -10
+                M  V30 END ATOM
+                M  V30 BEGIN BOND
+                M  V30 1 1 1 14
+                M  V30 2 1 1 13
+                M  V30 3 1 1 4
+                M  V30 4 1 2 15
+                M  V30 5 1 2 16
+                M  V30 6 1 2 3
+                M  V30 7 1 3 20
+                M  V30 8 1 3 17
+                M  V30 9 1 4 19
+                M  V30 10 1 4 18
+                M  V30 11 1 5 13
+                M  V30 12 1 5 8
+                M  V30 13 1 5 18
+                M  V30 14 1 6 7
+                M  V30 15 1 6 19
+                M  V30 16 1 6 14
+                M  V30 17 1 7 15
+                M  V30 18 1 7 20
+                M  V30 19 1 8 16
+                M  V30 20 1 8 17
+                M  V30 21 1 9 12
+                M  V30 22 1 9 13
+                M  V30 23 1 9 16
+                M  V30 24 1 10 11
+                M  V30 25 1 10 18
+                M  V30 26 1 10 17
+                M  V30 27 1 11 19
+                M  V30 28 1 11 20
+                M  V30 29 1 12 15
+                M  V30 30 1 12 14
+                M  V30 END BOND
+                M  V30 END CTAB
+                M  END
+
             </textarea>
           </div>
         </div>
