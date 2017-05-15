@@ -25,6 +25,12 @@ function wrapBack() {
 
 
 $(document).ready(function() {
+    var t1 = new GLmol('1');
+    var t2 = new GLmol('2');
+    var t3 = new GLmol('3');
+    // var t4 = new GLmol('4');
+    // var t5 = new GLmol('5');
+
     wrapBack();
 
     $(document).on("click touchstart", "#pore_button", function() {
