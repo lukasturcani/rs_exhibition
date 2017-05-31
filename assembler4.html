@@ -6,6 +6,7 @@
     <script type="text/javascript" src="js/Three49custom.js"></script>
     <script type="text/javascript" src="js/GLmol.js"></script>
     <script type="text/javascript" src="assembler.js"></script>
+    <script type="text/javascript" src="cagesfile_heavy"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             var prev_data = window.location.href.split('#');
@@ -20,15 +21,19 @@
   </head>
   <body>
 
-    <div id="header_div">
+    <div class="header">
       <div id="back_button_div">
-        <div id="back_button3" class="button back_button"><p>Back</p></div>
+        <div id="back_button3" class="button back_button"><p><<</p></div>
       </div>
-      <div id="title_div">
-          <p class="title">This is your cage</p>
+      <div class="help-tip">
+          <p> This is the assembled molecular cage, but it has not been optimised
+            yet. <br> In order the relax the new bonds created between the <a>Building Block </a>
+            and <c>Linker</c> molecules, you need to press the OPT button on the right.
+       </p>
       </div>
+      <div id="title_div" class="title"><p>This is your Molecular Cage</p></div>
       <div id="next_button_div">
-        <div id="next_button4" class="button next_button"><p>Optimize</p></div>
+        <div id="next_button4" class="button next_button"><p>OPT</p></div>
       </div>
     </div>
 

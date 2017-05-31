@@ -1,158 +1,228 @@
 * {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
     z-index: 0;
-
 }
 
+html {
+    height: 80%;
+}
+
+body {
+    background-color: dimgray;
+    height: 80%;
+}
 
 textarea {
     display: none;
 }
 
-
-html {
-    height: 100%;
-}
-
-
-body {
-    background-color: white;
-    height: 100%;
-
-}
-
-
 div {
     float: left;
-
 }
 
-
-#header_div {
-    /*background-color: red;*/
-    height: 15%;
-    width: 100%;
-
-}
-
-
-#back_button_div {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    height: 15%;
-    width: 15%;
-    padding: 1%;
-    z-index: 1;
-}
-
-
-.button {
-    height: 100%;
-    width: 100%;
-    border-radius: 15px;
-    display: table;
-
-}
-
-
-.back_button {
-    background: red;
-
-}
-
-
-p {
-    display: table-cell;
+a {
     text-align: center;
     vertical-align: middle;
-    color: white;
-    font-family: sans-serif;
-    font-size: 2.5em;
+    color: #ff3300;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
 }
 
+c {
+    text-align: center;
+    vertical-align: middle;
+    color: #3333ff;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.header {
+  height: auto;
+  width: 100%;
+  background-color: #ffbd45;
+  text-align: center;
+}
+
+.clear {
+  clear: both;
+}
 
 #title_div {
-    position: absolute;
-    top: 0%;
-    height: 15%;
-    width: 100%;
-    display: table;
+    height: 50%;
+    width: 50%;
 }
-
 
 .title {
-    font-size: 5.5em;
-    font-family: sans-serif;
-    color: purple;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 7em;
+    font-family: "Oswald", sans-serif;
+    color: white;
     text-align: center;
-    vertical-align: middle;
-    display: table-cell;
+    display: inline-block;
 
 }
 
+.button p {
+    font-family: "Helvetica", sans-serif;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+}
+
+#back_button_div {
+  float: left;
+  margin-left: 5%;
+  margin-top: 2%;
+  background-color: #424245;
+  width: 10%;
+  height: 30%;
+  padding: 2%;
+  border-radius: 20px;
+}
+
+.back_button {
+    background: #424245;
+}
 
 #next_button_div {
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    height: 15%;
-    width: 15%;
-    padding: 1%;
+    float: right;
+    margin-right: 5%;
+    margin-top: 2%;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    background-color: #424245;
+    width: 10%;
+    height: 30%;
+    padding: 2%;
+    border-radius: 20px;
 }
 
-
 .next_button {
-    background-color: #7EBF7E;
+    background-color: #424245;
 }
 
 #next_button4, #next_button5 {
-    background-color: green;
+    background-color: #424245;
 }
 
 .ready {
-    background-color: green;
+    background-color: #fb8c00;
+}
+
+
+.help-tip{
+  float: left;
+	text-align: center;
+  margin-top: 2.0%;
+  margin-left: 5%;
+  margin-right: 3%;
+	background-color: #424242;
+	border-radius: 100%;
+	width: 100px;
+	height: 100px;
+	font-size: 64px;
+	line-height: 100px;
+	cursor: default;
+}
+
+.help-tip:before{
+	content:'?';
+  font-family: "Oswald", sans-serif;
+	font-weight: bold;
+	color: white;
+}
+
+.help-tip:active p{
+	display:block;
+	transform-origin: 100% 0%;
+	-webkit-animation: fadeIn 0.3s ease-in-out;
+	animation: fadeIn 0.3s ease-in-out;
+  z-index: 50;
+}
+
+.help-tip p{	/* The tooltip */
+	display: none;
+	text-align: justify;
+	background-color: #e0e0e0;
+	padding: 80px;
+	width: 800px;
+	position: relative;
+	border-radius: 3px;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+	right: -4px;
+	color: black;
+	font-size: 24px;
+	line-height: 1.4;
+}
+
+.help-tip p:before{ /* The pointer of the tooltip */
+	position: absolute;
+	content: '';
+	width:0;
+	height: 0;
+	border:6px solid transparent;
+	border-bottom-color:#e0e0e0;
+	left:25px;
+	top:-12px;
+}
+
+.help-tip p:after{ /* Prevents the tooltip from being hidden */
+	width:100%;
+	height:40px;
+	content:'';
+	position: relative;
+	top:-40px;
+	left:0;
 }
 
 
 #windows_div {
-    /*background-color: blue;*/
-    height: 85%;
+    background-color: dimgray;
+    height: 65%;
+    min-height: 65%;
     width: 100%;
 }
-
 
 .filler {
     height: 100%;
     width: 16.66665%;
 }
 
-
 #row1 {
     position: inherit;
     top: 0%;
-    height: 50%;
+    height: 100%;
     width: 100%;
-
 }
-
 
 #row2 {
     position: inherit;
     top: 50%;
-    height: 50%;
+    height: 100%;
     width: 100%
 }
 
-
 .glmol_div {
-    height: 33.3333%;
+    height: 60.0%;
     width: 33.3333%;
     padding: 1%;
 }
 
+.glmol_window {
+    background-color: #424242;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+}
 
 .topology_div {
     height: 100%;
@@ -162,38 +232,43 @@ p {
 
 .main_div {
     height: 100%;
-    width: 85%;
+    width: 100%;
 }
 
+.selected {
+    border-style: solid;
+    border-width: thick;
+    border-color: #f98b00;
+    /*border-color: green;*/
+}
 
 #options_div {
-    /*background-color: green;*/
     height: 100%;
     width: 15%;
-
 }
 
 
 .options_button_div {
-    height: 50%;
-    width: 100%;
-    padding: 10%;
+    height: 30%;
+    width: 10%;
+    padding: 1%;
 }
 
 
 .toggle {
-    background-color: #7E7EFF;
+    background-color: #f98b00;
 
 }
 
 
 .selectedToggle {
-    background-color: blue;
+    /*background-color: #9ccc65;*/
+    background-color: green;
 }
 
 
 .glmol_window {
-    background-color: black;
+    background-color: #424242;
     height: 100%;
     width: 100%;
     border-radius: 35px;
@@ -216,27 +291,17 @@ p {
 
 
 #no_button {
-    background-color: red;
+    background-color: #ff5722;
 
 }
 
 
 #yes_button {
-    background-color: green;
+    background-color: #4caf50;
 
 }
 
 
 .big_button_text {
-    font-size: 10em;
-
-}
-
-
-.selected {
-    border-style: solid;
-    border-width: thick;
-    border-color: red;
-
-
+    font-size: 2em;
 }

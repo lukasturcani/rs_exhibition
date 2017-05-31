@@ -12,6 +12,13 @@
             prev_data = prev_data[prev_data.length-1];
             $('#no_button').wrap('<a href="assembler6.html#' + prev_data +'0"></a>');
             $('#yes_button').wrap('<a href="assembler6.html#' + prev_data +'1"></a>');
+
+
+            $('#no_button').click(function() {
+
+                $('body').remove()
+
+            });
         })
 
     </script>
@@ -19,24 +26,39 @@
     <link rel="stylesheet" type="text/css" href="assembler.css"/>
 
     <title>Cage Assembler</title>
-  </head>
+
   <body>
 
-    <div id="header_div">
+    <div class="header">
       <div id="back_button_div">
         <div id="back_button4" class="button back_button"><p>Back</p></div>
       </div>
+      <div class="help-tip">
+          <p> Something to be added here?.
+       </p>
+      </div>
       <div id="title_div">
-          <p class="title">Will it collapse?</p>
+          <p class="title">Will the Molecular Cage Collapse?</p>
       </div>
     </div>
 
     <div id="windows_div">
       <div id="no_button_div" class="big_button_div">
         <div id="no_button" class="button big_button"><p class="big_button_text">No</p></div>
+            <div id="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+
       </div>
       <div id="yes_button_div" class="big_button_div">
         <div id="yes_button" class="button big_button"><p class="big_button_text">Yes</p></div>
+            <div id="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
       </div>
     </div>
 
