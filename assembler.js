@@ -43,7 +43,7 @@ $(document).ready(function() {
         $(this).addClass('selected');
         c = [for (x of this.classList) if (x=='bb' || x=='lk' || x=='top') x][0];
 
-        $('.next_button').addClass('ready');
+        $('.next_text').addClass('ready');
         wrapNext(this.id);
 
     });
