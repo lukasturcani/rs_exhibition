@@ -11,6 +11,12 @@
         $(document).ready(function() {
             var prev_data = window.location.href.split('#');
             prev_data = prev_data[prev_data.length-1];
+
+            var molBlock =  unopt_cages["t" + prev_data[0] + "lk" + prev_data[2] + "bb" + prev_data[1]];
+            console.log(Object.keys(unopt_cages).length);
+            
+            $('#1_src').html(molBlock);
+            var cage = new GLmol('1');
             $('#next_button4').wrap('<a href="assembler5.html#' + prev_data +'"></a>');
         })
     </script>
