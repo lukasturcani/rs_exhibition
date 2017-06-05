@@ -1,14 +1,52 @@
 import re
 
-p = re.compile(r'(?<="t\dlk)100')
-rep = '9'
-filename = '/home/lukas/downloads/cagesfile_heavy'
-outfile = filename
+mapping1 = {'35': '1', '36': '2', '38': '3',
+            '40': '4', '42': '5', '47': '6',
+            '51': '7', '56': '8'}
 
-with open(filename, 'r') as f:
-    s = f.read()
+mapping2 = {'0': '1', '1': '2', '6': '3',
+            '82': '4', '83': '5', '87': '6',
+            '89': '7', '93': '8'}
 
-new_string = p.sub(rep, s)
+for key, value in mapping1.items():
+    p = re.compile(r'(?<="t\dlk\d\dbb){}'.format(key))
+    rep = value
+    filename = '/home/lukas/projects/cage_assembler/cagesfile'
+    outfile = filename
 
-with open(outfile, 'w') as f:
-    f.write(new_string)
+    with open(filename, 'r') as f:
+        s = f.read()
+
+    new_string = p.sub(rep, s)
+
+    with open(outfile, 'w') as f:
+        f.write(new_string)
+
+for key, value in mapping1.items():
+    p = re.compile(r'(?<="t\dlk\dbb){}'.format(key))
+    rep = value
+    filename = '/home/lukas/projects/cage_assembler/cagesfile'
+    outfile = filename
+
+    with open(filename, 'r') as f:
+        s = f.read()
+
+    new_string = p.sub(rep, s)
+
+    with open(outfile, 'w') as f:
+        f.write(new_string)
+
+
+for key, value in mapping2.items():
+    p = re.compile(r'(?<="t\dlk){}'.format(key))
+    rep = value
+    filename = '/home/lukas/projects/cage_assembler/cagesfile'
+    outfile = filename
+
+    with open(filename, 'r') as f:
+        s = f.read()
+
+    new_string = p.sub(rep, s)
+
+    with open(outfile, 'w') as f:
+        f.write(new_string)
