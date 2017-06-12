@@ -6,6 +6,18 @@
     <script type="text/javascript" src="js/Three49custom.js"></script>
     <script type="text/javascript" src="js/GLmol.js"></script>
     <script type="text/javascript" src="assembler.js"></script>
+    <script type="text/javascript" src="optcages"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var prev_data = window.location.href.split('#');
+            prev_data = prev_data[prev_data.length-1];
+            prev_data = prev_data.slice(0, prev_data.length-1);
+            console.log(prev_data);
+            $('#1_src').html(opt_cages[prev_data]);
+            var cage = new GLmol('1');
+        });
+    </script>
+
     <link rel="stylesheet" type="text/css" href="assembler.css"/>
 
     <title>Cage Assembler</title>
