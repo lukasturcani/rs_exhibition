@@ -14,6 +14,28 @@
             $('#1_src').html(unopt_cages[prev_data]);
             var cage = new GLmol('1');
             $('#next_button4').wrap('<a href="assembler5.html#' + prev_data +'"></a>');
+
+
+            $(document).on("click touchstart", "#pore_button", function() {
+                $(this).toggleClass('selectedToggle');
+
+            });
+            $(document).on("click touchstart", "#vdw_button", function() {
+                if ($(this).hasClass('selectedToggle')) {
+                    cage.rebuildScene();
+                }
+                else {
+                    var all = cage.getAllAtoms();
+                    var hetatm = cage.removeSolvents(cage.getHetatms(all));
+                    cage.drawAtomsAsSphere(cage.modelGroup, hetatm, cage.sphereRadius);
+                    cage.show();
+                }
+
+                $(this).toggleClass("selectedToggle");
+
+            });
+
+
         });
     </script>
 

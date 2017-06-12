@@ -28,14 +28,6 @@ $(document).ready(function() {
 
     wrapBack();
 
-    $(document).on("click touchstart", "#pore_button", function() {
-        $(this).toggleClass('selectedToggle');
-
-    });
-    $(document).on("click touchstart", "#vdw_button", function() {
-        $(this).toggleClass("selectedToggle");
-
-    });
 
 
     $(document).on("click touchstart", ".selectable", function() {
