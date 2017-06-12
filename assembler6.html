@@ -8,14 +8,40 @@
     <script type="text/javascript" src="assembler.js"></script>
     <script type="text/javascript" src="optcages"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            var prev_data = window.location.href.split('#');
-            prev_data = prev_data[prev_data.length-1];
-            prev_data = prev_data.slice(0, prev_data.length-1);
-            console.log(prev_data);
-            $('#1_src').html(opt_cages[prev_data]);
-            var cage = new GLmol('1');
+        var prev_data = window.location.href.split('#');
+        prev_data = prev_data[prev_data.length-1];
+        $('#1_src').html(opt_cages[prev_data][0]);
+        var cage = new GLmol('1');
+
+        $(document).on("click touchstart", "#vdw_button", function() {
+            if ($(this).hasClass('selectedToggle')) {
+                cage.rebuildScene();
+            }
+            else {
+                var all = cage.getAllAtoms();
+                var hetatm = cage.removeSolvents(cage.getHetatms(all));
+                cage.drawAtomsAsSphere(cage.modelGroup, hetatm, cage.sphereRadius);
+                cage.show();
+            }
+
+            $(this).toggleClass("selectedToggle");
+
         });
+
+
+        var atom = {};
+        atom.serial = cage.atoms.length;
+        atom.radius = unopt_cages[prev_data][1];
+        atom.x = 0;
+        atom.y = 0;
+        atom.z = 0;
+        atom.hetflag = true;
+        atom.atom = atom.elem = 'CL';
+        atom.bonds = [];
+        atom.bondOrder = [];
+        cage.atoms[atom.serial] = atom;
+        cage.rebuildScene();
+
     </script>
 
     <link rel="stylesheet" type="text/css" href="assembler.css"/>

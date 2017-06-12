@@ -11,15 +11,11 @@
         $(document).ready(function() {
             var prev_data = window.location.href.split('#');
             prev_data = prev_data[prev_data.length-1];
-            $('#1_src').html(unopt_cages[prev_data]);
+            $('#1_src').html(unopt_cages[prev_data][0]);
             var cage = new GLmol('1');
             $('#next_button4').wrap('<a href="assembler5.html#' + prev_data +'"></a>');
 
 
-            $(document).on("click touchstart", "#pore_button", function() {
-                $(this).toggleClass('selectedToggle');
-
-            });
             $(document).on("click touchstart", "#vdw_button", function() {
                 if ($(this).hasClass('selectedToggle')) {
                     cage.rebuildScene();
@@ -35,6 +31,19 @@
 
             });
 
+
+            var atom = {};
+            atom.serial = cage.atoms.length;
+            atom.radius = 0.5*unopt_cages[prev_data][1];
+            atom.x = 0;
+            atom.y = 0;
+            atom.z = 0;
+            atom.hetflag = true;
+            atom.atom = atom.elem = 'CL';
+            atom.bonds = [];
+            atom.bondOrder = [];
+            cage.atoms[atom.serial] = atom;
+            cage.rebuildScene();
 
         });
     </script>
@@ -82,9 +91,6 @@
           <div id="vdw_button" class="button toggle"><p>Fill Space</p></div>
         </div>
 
-        <div id="pore_toggle_div" class="options_button_div">
-          <div id="pore_button" class="button toggle"><p>Pore</p></div>
-        </div>
       </div>
     </div>
   </body>

@@ -524,6 +524,7 @@ GLmol.prototype.drawAtomsAsSphere = function(group, atomlist, defaultRadius, for
       var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
       group.add(sphere);
       var r = (!forceDefault && this.vdwRadii[atom.elem] != undefined) ? this.vdwRadii[atom.elem] : defaultRadius;
+      r = (atom.radius == undefined) ? r : atom.radius;
       if (!forceDefault && scale) r *= scale;
       sphere.scale.x = sphere.scale.y = sphere.scale.z = r;
       sphere.position.x = atom.x;

@@ -21,7 +21,8 @@ for topi, top in enumerate([TwoPlusThree, FourPlusSix,
             for a in c.mol.GetAtoms():
                 if a.GetAtomicNum() == 6:
                     a.SetAtomicNum(14)
-            unopt_cages[c.name] = c.mdl_mol_block()
+            c.set_position([0, 0, 0])
+            unopt_cages[c.name] = [c.mdl_mol_block(), c.cavity_size()]
 
 with open('heavycages', 'w') as f:
     json.dump(unopt_cages, f)
