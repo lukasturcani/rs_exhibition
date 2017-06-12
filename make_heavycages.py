@@ -9,8 +9,8 @@ import json
 unopt_cages = {}
 for topi, top in enumerate([TwoPlusThree, FourPlusSix,
                             EightPlusTwelve, Dodecahedron], 1):
-    for bb_file in glob('mols/bbs/*.mol'):
-        for lk_file in glob('mols/lks/*.mol'):
+    for bb_file in glob('mols/heavy/bbs/*.mol'):
+        for lk_file in glob('mols/heavy/lks/*.mol'):
             bb = StructUnit3(bb_file, 'aldehyde')
             lk = StructUnit2(lk_file, 'amine')
             c = Cage([bb, lk], top())
