@@ -54,6 +54,9 @@
 
         var volume =4/3 * 3.14 * opt_cages[cage_code][1]*0.5;
         volume = volume.toFixed(1);
+        if (volume < 0 ) {
+            volume = 0;
+        }
 
         var mols = Math.round(volume / 15.59) ;
         var info_str = "This cage's pore has a volume of " + String(volume) + " 10<sup>-30</sup> m<sup>3</sup>. ";
