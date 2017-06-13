@@ -24,9 +24,8 @@ for topi, top in enumerate([TwoPlusThree, FourPlusSix,
                     os.path.basename(bb_file).replace('.mol', '') +
                     os.path.basename(lk_file).replace('.mol', ''))
             try:
-                wd = c.window_difference()
-            except:
-                print('EXCEPTED')
+                wd = c.window_difference() / c.topology.n_windows
+            except Exception as ex:
                 wd = None
             if wd is None:
                 counter += 1
