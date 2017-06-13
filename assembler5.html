@@ -6,13 +6,51 @@
     <script type="text/javascript" src="js/Three49custom.js"></script>
     <script type="text/javascript" src="js/GLmol.js"></script>
     <script type="text/javascript" src="assembler.js"></script>
+    <script type="text/javascript" src="heavycages"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             var prev_data = window.location.href.split('#');
             prev_data = prev_data[prev_data.length-1];
             $('#no_button').wrap('<a href="assembler6.html#' + prev_data +'0"></a>');
             $('#yes_button').wrap('<a href="assembler6.html#' + prev_data +'1"></a>');
-        })
+
+
+            $('#1_src').html(unopt_cages[prev_data][0]);
+            var cage = new GLmol('1');
+            $('#next_button4').wrap('<a href="assembler5.html#' + prev_data +'"></a>');
+
+
+            $(document).on("click touchstart", "#vdw_button", function() {
+                if ($(this).hasClass('selectedToggle')) {
+                    cage.rebuildScene();
+                }
+                else {
+                    var all = cage.getAllAtoms();
+                    var hetatm = cage.removeSolvents(cage.getHetatms(all));
+                    cage.drawAtomsAsSphere(cage.modelGroup, hetatm, cage.sphereRadius);
+                    cage.show();
+                }
+
+                $(this).toggleClass("selectedToggle");
+
+            });
+
+
+            var atom = {};
+            atom.serial = cage.atoms.length;
+            atom.radius = 0.5*unopt_cages[prev_data][1];
+            atom.x = 0;
+            atom.y = 0;
+            atom.z = 0;
+            atom.hetflag = true;
+            atom.atom = atom.elem = 'CL';
+            atom.bonds = [];
+            atom.bondOrder = [];
+            cage.atoms[atom.serial] = atom;
+            cage.rebuildScene();
+
+
+        });
 
     </script>
 
@@ -32,12 +70,22 @@
     </div>
 
     <div id="windows_div">
-      <div id="no_button_div" class="big_button_div">
-        <div id="no_button" class="button big_button"><p class="big_button_text">No</p></div>
+
+      <div class="cage_window_div">
+            <div id="1" class="glmol_window">
+              <textarea id="1_src">
+              </textarea>
+            </div>
       </div>
-      <div id="yes_button_div" class="big_button_div">
-        <div id="yes_button" class="button big_button"><p class="big_button_text">Yes</p></div>
+      <div class="both_buttons_div">
+          <div id="yes_button_div" class="big_button_div">
+            <div id="yes_button" class="button big_button"><p class="big_button_text">Yes</p></div>
+          </div>
+          <div id="no_button_div" class="big_button_div">
+            <div id="no_button" class="button big_button"><p class="big_button_text">No</p></div>
+          </div>
       </div>
+
     </div>
 
   </body>

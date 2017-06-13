@@ -279,7 +279,7 @@ p {
 
 
 .selectedToggle {
-    background-color: blue;
+    background-color: ;
 }
 
 
@@ -291,9 +291,23 @@ p {
 }
 
 
-.big_button_div {
+.cage_window_div {
     height: 100%;
-    width: 50%;
+    width: 70%;
+    padding: 1%;
+    /*background-color: red;*/
+}
+
+
+.both_buttons_div {
+    height: 100%;
+    width: 30%;
+
+}
+
+.big_button_div {
+    height: 50%;
+    width: 100%;
 
 }
 
@@ -323,6 +337,21 @@ p {
 
 }
 
+#glmol_and_content {
+    height: 100%;
+    width: 80%;
+}
+
+#content_div {
+    height: 10%;
+    width: 100%;
+    /*background-color: red;*/
+}
+
+.final_page {
+    height: 90%;
+    width: 100%
+}
 
 .selected {
     border-style: solid;
