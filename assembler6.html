@@ -45,7 +45,14 @@
         cage.atoms[atom.serial] = atom;
         cage.rebuildScene();
 
-        if (opt_cages[cage_code][2] == parseInt(prediction)) {
+
+        var not_collapsed = ['429', '422', '432', '472', '122', '184', '189', '325']
+        var collapsed = opt_cages[cage_code][2];
+        if (not_collapsed.indexOf(cage_code) >= 0) {
+            collapsed = 0;
+        }
+
+        if (collapsed == parseInt(prediction)) {
             $('.title').html('CORRECT!');
         }
         else {
@@ -60,7 +67,7 @@
 
         var mols = Math.round(volume / 15.59) ;
         var info_str = "This cage's pore has a volume of " + String(volume) + " \u{00D7} 10<sup>-30</sup> m<sup>3</sup>. ";
-        info_str += "A total of " + String(mols) + " N<sub>2</sub> molecules can fit inside it."
+        info_str += "A total of " + String(mols) + " N<sub>2</sub> molecules can fit inside it.";
         $('#cage_info').html(info_str);
 
 
