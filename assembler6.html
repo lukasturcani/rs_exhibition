@@ -44,7 +44,22 @@
         atom.bondOrder = [];
         cage.atoms[atom.serial] = atom;
         cage.rebuildScene();
-        console.log(opt_cages[cage_code][2]);
+
+        if (opt_cages[cage_code][2] == parseInt(prediction)) {
+            $('.title').html('CORRECT!');
+        }
+        else {
+            $('.title').html('WRONG.');
+        }
+
+        var volume =4/3 * 3.14 * opt_cages[cage_code][1]*0.5;
+        volume = volume.toFixed(1);
+
+        var mols = Math.round(volume / 15.59) ;
+        var info_str = "This cage's pore has a volume of " + String(volume) + " 10<sup>-30</sup> m<sup>3</sup>. ";
+        info_str += "A total of " + String(mols) + " N<sub>2</sub> molecules can fit inside it."
+        $('#cage_info').html(info_str);
+
 
     });
 
@@ -57,6 +72,13 @@
   <body>
 
     <div id="header_div">
+
+      <div id="tip_div">
+        <div class="help-tip">
+            <p> By selecting a more flexible <span class="blue">Linker</span> you will generate a
+              more flexible cage.</p>
+        </div>
+      </div>
 
       <div id="title_div">
           <p class="title"> </p>
@@ -77,7 +99,7 @@
             </div>
           </div>
 
-          <div id="content_div">
+          <div id="content_div"> <p id="cage_info"> </p>
           </div>
 
       </div>
@@ -85,7 +107,7 @@
       <div id="options_div">
 
         <div id="vdw_toggle_div" class="options_button_div">
-          <div id="vdw_button" class="button toggle"><p>Fill Space</p></div>
+          <div id="vdw_button" class="button toggle"><p>Fill<br>Space</p></div>
         </div>
 
       </div>

@@ -273,13 +273,13 @@ p {
 
 
 .toggle {
-    background-color: #7E7EFF;
+    background-color: #ffbd45;
 
 }
 
 
 .selectedToggle {
-    background-color: ;
+    background-color: #f98b00;
 }
 
 
@@ -339,12 +339,15 @@ p {
 
 #glmol_and_content {
     height: 100%;
-    width: 80%;
+    width: 85%;
 }
 
 #content_div {
     height: 10%;
     width: 100%;
+    display: table;
+    padding: 1%;
+    padding-left: 2%;
     /*background-color: red;*/
 }
 
@@ -359,4 +362,10 @@ p {
     border-color: #f98b00;
 
 
+}
+
+#cage_info {
+    display: table-cell;
+    text-align: left;
+    font-size: 1.7vw;
 }
