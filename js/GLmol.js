@@ -45,7 +45,7 @@ function GLmol(id, suppressAutoload) {
 
 GLmol.prototype.create = function(id, suppressAutoload) {
    this.Nucleotides = ['  G', '  A', '  T', '  C', '  U', ' DG', ' DA', ' DT', ' DC', ' DU'];
-   this.ElementColors = {"H": 0xCCCCCC, "C": 0x770000, "O": 0xCC0000, "N": 0x0000CC, "S": 0xCCCC00, "P": 0x6622CC,
+   this.ElementColors = {"H": 0xCCCCCC, "C": 0x777777, "O": 0xCC0000, "N": 0x0000CC, "S": 0xCCCC00, "P": 0x6622CC,
                          "F": 0x00CC00, "CL": 0x00CC00, "BR": 0x882200, "I": 0x6600AA,
                          "FE": 0xCC6600, "CA": 0x8888AA, "PT": 0x770000, "AU": 0x000077, "SI": 0x770000, "GE": 0x000077};
 // Reference: A. Bondi, J. Phys. Chem., 1964, 68, 441.
@@ -524,6 +524,7 @@ GLmol.prototype.drawAtomsAsSphere = function(group, atomlist, defaultRadius, for
       var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
       group.add(sphere);
       var r = (!forceDefault && this.vdwRadii[atom.elem] != undefined) ? this.vdwRadii[atom.elem] : defaultRadius;
+      r = (atom.radius == undefined) ? r : atom.radius;
       if (!forceDefault && scale) r *= scale;
       sphere.scale.x = sphere.scale.y = sphere.scale.z = r;
       sphere.position.x = atom.x;
