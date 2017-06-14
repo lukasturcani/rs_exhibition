@@ -7,7 +7,8 @@ import json
 
 # Load all unoptimized cages and rebuild them using correct names.
 
-opt_pop = Population.load('opt_cages_final.json')
+opt_pop = Population.load('cyclohexane_cages_opt.json')
+opt_pop.add_members(Population.load('opt_cages_final.json'))
 opt_cages = {}
 counter = 0
 for topi, top in enumerate([TwoPlusThree, FourPlusSix,
