@@ -53,21 +53,21 @@
         }
 
         if (collapsed == parseInt(prediction)) {
-            $('.title').html('CORRECT!');
+            $('.title').html('CORRECT');
         }
         else {
-            $('.title').html('WRONG!');
+            $('.title').html('INCORRECT');
         }
 
-        var volume =4/3 * 3.14 * opt_cages[cage_code][1]*0.5;
+        var volume =4/3 * 3.14 * Math.pow(opt_cages[cage_code][1]*0.5, 3);
         volume = volume.toFixed(1);
         if (volume < 0 ) {
             volume = 0;
         }
 
-        var mols = Math.round(volume / 15.59) ;
-        var info_str = "Pore volume = " + String(volume) + " 10<sup>-30</sup> m<sup>3</sup> and ";
-        info_str += String(mols) + " N<sub>2</sub> molecules can fit inside it."
+        var mols = Math.round(volume / 25.24) ;
+        var info_str = "Pore volume = <b>" + String(volume) + "</b> \u{212B}<sup>3</sup> and <b>";
+        info_str += String(mols) + "</b> N<sub>2</sub> molecules can fit inside it."
 
         $('#cage_info').html(info_str);
 
@@ -86,7 +86,8 @@
 
       <div id="tip_div">
         <div class="help-tip">
-            <p> This is the final optimised cage, did you guess it right?<br><br>
+            <p> This is the final optimised cage, did you guess it right?<br>
+            If not, ask us why and we will be happy to explain!<br><br>
             If you are interested in seeing the internal void of the cage,
             click the <b>Fill Space</b> button on the right. The pore is defined
             by a green sphere, and that is where guest molecules or atoms can

@@ -9,15 +9,12 @@ import json
 
 opt_pop = Population.load('cyclohexane_cages_opt.json')
 opt_pop.add_members(Population.load('opt_cages_final.json'))
-
-with open('optcages', 'r') as f:
-    opt_cages = json.load(f)
-
+opt_cages = {}
 counter = 0
 for topi, top in enumerate([TwoPlusThree, FourPlusSix,
                             EightPlusTwelve, Dodecahedron], 1):
     for bb_file in glob('mols/light/bbs/*.mol'):
-        for lk_file in glob('mols/light/lks/6.mol'):
+        for lk_file in glob('mols/light/lks/*.mol'):
 
             # build the light cage.
             bb = StructUnit3(bb_file, 'aldehyde')
@@ -28,7 +25,7 @@ for topi, top in enumerate([TwoPlusThree, FourPlusSix,
                     os.path.basename(bb_file).replace('.mol', '') +
                     os.path.basename(lk_file).replace('.mol', ''))
             try:
-                wd = c.window_difference() / c.topology.n_windows
+                wd = c.window_difference()
             except Exception as ex:
                 wd = None
             if wd is None:
