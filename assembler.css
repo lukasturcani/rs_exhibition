@@ -152,12 +152,12 @@ p {
 
 
 .red {
-    color: red;
+    color: #ff4d4d;
 }
 
 
 .blue {
-    color: blue;
+    color: #6666ff;
 }
 
 
@@ -182,7 +182,7 @@ p {
 
 .shift_left {
     position: relative;
-    right: 10%;
+    right: 5%;
 }
 
 #next_button_div {
