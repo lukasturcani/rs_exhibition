@@ -45,7 +45,14 @@
         cage.atoms[atom.serial] = atom;
         cage.rebuildScene();
 
-        if (opt_cages[cage_code][2] == parseInt(prediction)) {
+
+        var not_collapsed = ['429', '422', '432', '472', '122', '184', '189', '325']
+        var collapsed = opt_cages[cage_code][2];
+        if (not_collapsed.indexOf(cage_code) >= 0) {
+            collapsed = 0;
+        }
+
+        if (collapsed == parseInt(prediction)) {
             $('.title').html('CORRECT!');
         }
         else {
@@ -54,10 +61,14 @@
 
         var volume =4/3 * 3.14 * opt_cages[cage_code][1]*0.5;
         volume = volume.toFixed(1);
+        if (volume < 0 ) {
+            volume = 0;
+        }
 
         var mols = Math.round(volume / 15.59) ;
         var info_str = "Pore volume = " + String(volume) + " 10<sup>-30</sup> m<sup>3</sup> and ";
         info_str += String(mols) + " N<sub>2</sub> molecules can fit inside it."
+
         $('#cage_info').html(info_str);
 
 
@@ -85,7 +96,7 @@
       </div>
 
       <div id="title_div">
-          <p class="title"> </p>
+          <p class="title shift_left"> </p>
       </div>
       <div id="next_button_div">
         <a href="assembler1.html"><div id="next_button5" class="button next_button"><p id="try_again">Try again</p></div></a>

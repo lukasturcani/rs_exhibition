@@ -7,13 +7,17 @@ import json
 
 # Load all unoptimized cages and rebuild them using correct names.
 
-opt_pop = Population.load('opt_cages_final.json')
-opt_cages = {}
+opt_pop = Population.load('cyclohexane_cages_opt.json')
+opt_pop.add_members(Population.load('opt_cages_final.json'))
+
+with open('optcages', 'r') as f:
+    opt_cages = json.load(f)
+
 counter = 0
 for topi, top in enumerate([TwoPlusThree, FourPlusSix,
                             EightPlusTwelve, Dodecahedron], 1):
     for bb_file in glob('mols/light/bbs/*.mol'):
-        for lk_file in glob('mols/light/lks/*.mol'):
+        for lk_file in glob('mols/light/lks/6.mol'):
 
             # build the light cage.
             bb = StructUnit3(bb_file, 'aldehyde')
