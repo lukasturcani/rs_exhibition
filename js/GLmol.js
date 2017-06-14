@@ -51,7 +51,8 @@ GLmol.prototype.create = function(id, suppressAutoload) {
 // Reference: A. Bondi, J. Phys. Chem., 1964, 68, 441.
    this.vdwRadii = {"H": 1.2, "LI": 1.82, "NA": 2.27, "K": 2.75, "C": 1.7, "N": 1.55, "O": 1.52,
                    "F": 1.47, "P": 1.80, "S": 1.80, "CL": 1.75, "BR": 1.85, "SE": 1.90,
-                   "ZN": 1.39, "CU": 1.4, "NI": 1.63, "PT": 1.7, "AU": 1.7, "SI": 1.7, "GE": 1.7};
+                   "ZN": 1.39, "CU": 1.4, "NI": 1.63, "PT": 1.7, "AU": 1.7, "SI": 1.7, "GE": 1.7,
+                    "X": 1.5};
 
    this.id = id;
    this.aaScale = 1; // or 2
