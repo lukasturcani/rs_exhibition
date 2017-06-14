@@ -56,8 +56,8 @@
         volume = volume.toFixed(1);
 
         var mols = Math.round(volume / 15.59) ;
-        var info_str = "This cage's pore has a volume of " + String(volume) + " 10<sup>-30</sup> m<sup>3</sup>. ";
-        info_str += "A total of " + String(mols) + " N<sub>2</sub> molecules can fit inside it."
+        var info_str = "Pore volume = " + String(volume) + " 10<sup>-30</sup> m<sup>3</sup>. ";
+        info_str += String(mols) + " N<sub>2</sub> molecules can fit inside it."
         $('#cage_info').html(info_str);
 
 
@@ -76,9 +76,11 @@
       <div id="tip_div">
         <div class="help-tip">
             <p> This is the final optimised cage, did you guess it right?<br><br>
-            If you are interested in seeing the internal void of the cage, click the <b>Fill Space</b> button on the right.
-            The pore is defined by a green sphere, and that is where guest molecules or atoms can be stored.<br><br>
-            If you liked this experience, feel free to <b>Try Again</b> and build a new cage!</p>
+            If you are interested in seeing the internal void of the cage,
+            click the <b>Fill Space</b> button on the right. The pore is defined
+            by a green sphere, and that is where guest molecules or atoms can
+            be stored.<br><br>
+            Feel free to <b>Try Again</b> and build a new cage!</p>
         </div>
       </div>
 
