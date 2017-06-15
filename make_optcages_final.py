@@ -30,12 +30,15 @@ for topi, top in enumerate([TwoPlusThree, FourPlusSix,
                 wd = None
             if wd is None:
                 counter += 1
-                print(counter, name)
                 collapsed = 1
-            elif wd > 0.5:
+            elif ((top is TwoPlusThree and wd > 0.8) or
+                  (top is FourPlusSix and wd > 0.6) or
+                  (top is EightPlusTwelve and wd > 1.5) or
+                  (top is Dodecahedron and wd > 1.0)):
                 collapsed = 1
             else:
                 collapsed = 0
+            print(name)
             opt_cages[name] = [c.mdl_mol_block(), c.cavity_size(),
                                collapsed]
 
