@@ -12,7 +12,9 @@ function wrapNext(data) {
 }
 
 function wrapBack() {
-    if (!window.location.href.includes('#')) {return;};
+    if (!window.location.href.includes('#')) {
+        return;
+    };
     var prev_data = window.location.href.split('#')[1];
     if (!window.location.href.includes('assembler5')){
         prev_data = prev_data.slice(0, prev_data.length-1);
@@ -28,14 +30,14 @@ $(document).ready(function() {
 
     wrapBack();
 
-
-
-    $(document).on("click touchstart", ".selectable", function() {
+    $(document).on('click touchstart', '.selectable', function() {
+        // Remove highglight around currently selected box.
         $('.selected').removeClass('selected');
+        // Add highlight around chosen box.
         $(this).addClass('selected');
-        c = [for (x of this.classList) if (x=='bb' || x=='lk' || x=='top') x][0];
-
+        // Highlight the "next" button.
         $('.next_text').addClass('ready');
+        // Save id of selected box.
         wrapNext(this.id);
 
     });
