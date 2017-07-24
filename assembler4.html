@@ -2,7 +2,6 @@
 <html>
   <head>
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script type="text/javascript" src="js/Three49custom.js"></script>
     <script type="text/javascript" src="js/GLmol.js"></script>
     <script type="text/javascript" src="assembler.js"></script>
@@ -15,7 +14,7 @@
             $('#1_src').html(unopt_cages[prev_data][0]);
             // Convert the "next" button into a hyperlink.
             $('#next_button4').wrap('<a href="assembler5.html#' + prev_data +'"></a>');
-            
+
             // Render the molecule.
             var cage = new GLmol('1');
             var atom = {};

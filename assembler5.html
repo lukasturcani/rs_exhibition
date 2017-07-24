@@ -2,7 +2,6 @@
 <html>
   <head>
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script type="text/javascript" src="js/Three49custom.js"></script>
     <script type="text/javascript" src="js/GLmol.js"></script>
     <script type="text/javascript" src="assembler.js"></script>
@@ -15,7 +14,7 @@
             $('#1_src').html(unopt_cages[prev_data][0]);
             // Make the "no" and "yes" buttons add 0 and 1 to the molecule
             // identifier, respectively. Make them into hyperlinks to the next
-            // page. 
+            // page.
             $('#no_button').wrap('<a href="assembler6.html#' + prev_data +'0"></a>');
             $('#yes_button').wrap('<a href="assembler6.html#' + prev_data +'1"></a>');
             // Render the molecule.
