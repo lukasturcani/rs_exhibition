@@ -1,6 +1,6 @@
-from mmeam import (Population, StructUnit2, StructUnit3,
-                   Cage, TwoPlusThree, FourPlusSix, EightPlusTwelve,
-                   Dodecahedron)
+from mtkm import (Population, StructUnit2, StructUnit3,
+                  Cage, TwoPlusThree, FourPlusSix, EightPlusTwelve,
+                  Dodecahedron)
 from glob import glob
 import os
 import json

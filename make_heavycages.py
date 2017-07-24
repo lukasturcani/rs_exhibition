@@ -1,11 +1,16 @@
 """
+Creates the "heavycages" file.
+
+The "heavycages" file is holds a javascript object where each attribute
+name is the ID of a cage and the value is a string holding the
+molecular structure in .mol V3000 format.
 
 """
 
-from mtk import (StructUnit2, StructUnit3,
-                 Cage, TwoPlusThree, FourPlusSix, EightPlusTwelve,
-                 Dodecahedron)
-from glob import glob
+from mtkm import (StructUnit2, StructUnit3,
+                  Cage, TwoPlusThree, FourPlusSix, EightPlusTwelve,
+                  Dodecahedron)
+from glob import iglob
 import os
 import json
 
@@ -13,8 +18,8 @@ import json
 unopt_cages = {}
 for topi, top in enumerate([TwoPlusThree, FourPlusSix,
                             EightPlusTwelve, Dodecahedron], 1):
-    for bb_file in glob('mols/heavy/bbs/*.mol'):
-        for lk_file in glob('mols/heavy/lks/*.mol'):
+    for bb_file in iglob('mols/heavy/bbs/*.mol'):
+        for lk_file in iglob('mols/heavy/lks/*.mol'):
             bb = StructUnit3(bb_file, 'aldehyde')
             lk = StructUnit2(lk_file, 'amine')
             c = Cage([bb, lk], top())
