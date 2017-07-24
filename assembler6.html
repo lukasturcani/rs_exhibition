@@ -9,13 +9,64 @@
     <script type="text/javascript" src="optcages"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        var prev_data = window.location.href.split('#');
-        prev_data = prev_data[prev_data.length-1];
+        // Place the molecular structure data from the "optcages" file
+        // into the text field.
+        var prev_data = window.location.href.split('#')[1];
+        // The ID of the cage the user selected.
         cage_code = prev_data.slice(0,3);
+        // Check if the user predicted the cage to be collapsed or not from the
+        // hyperlink.
         prediction = prev_data.slice(3,4);
         $('#1_src').html(opt_cages[cage_code][0]);
-        var cage = new GLmol('1');
 
+        // Render the molecule.
+        var cage = new GLmol('1');
+        var atom = {};
+        atom.serial = cage.atoms.length;
+        atom.radius = 0.5*opt_cages[cage_code][1];
+        atom.x = 0;
+        atom.y = 0;
+        atom.z = 0;
+        atom.hetflag = true;
+        atom.atom = atom.elem = 'CL';
+        atom.bonds = [];
+        atom.bondOrder = [];
+        cage.atoms[atom.serial] = atom;
+        cage.rebuildScene();
+
+        // Some cages were incorrectly judged to be collapsed by the algo,
+        // their ID are listed here.
+        var not_collapsed = ['429', '422', '432', '472', '122', '184', '189', '325']
+        // Check if the algo found the cage to be collapsed or not.
+        var collapsed = opt_cages[cage_code][2];
+        // Correct incorrect algo findings.
+        if (not_collapsed.indexOf(cage_code) >= 0) {
+            collapsed = 0;
+        }
+        // Make the title indicate if the predction of collapse was wrong or
+        // right.
+        if (collapsed == parseInt(prediction)) {
+            $('.title').html('CORRECT');
+        }
+        else {
+            $('.title').html('INCORRECT');
+        }
+
+        // Calculate the size of the cavity and display how many N2 molecules
+        // could fit inside it.
+        var volume =4/3 * 3.14 * Math.pow(opt_cages[cage_code][1]*0.5, 3);
+        volume = volume.toFixed(1);
+        if (volume < 0 ) {
+            volume = 0;
+        }
+        var mols = Math.round(volume / 25.24) ;
+        var info_str = "Pore volume = <b>" + String(volume) + "</b> \u{212B}<sup>3</sup> and <b>";
+        info_str += String(mols) + "</b> N<sub>2</sub> molecules can fit inside it."
+        $('#cage_info').html(info_str);
+
+        /**
+         * Change the rendering when the "Fill Space" button is pressed.
+         */
         $(document).on("click touchstart", "#vdw_button", function() {
             if ($(this).hasClass('selectedToggle')) {
                 cage.rebuildScene();
@@ -30,47 +81,6 @@
             $(this).toggleClass("selectedToggle");
 
         });
-
-
-        var atom = {};
-        atom.serial = cage.atoms.length;
-        atom.radius = 0.5*opt_cages[cage_code][1];
-        atom.x = 0;
-        atom.y = 0;
-        atom.z = 0;
-        atom.hetflag = true;
-        atom.atom = atom.elem = 'CL';
-        atom.bonds = [];
-        atom.bondOrder = [];
-        cage.atoms[atom.serial] = atom;
-        cage.rebuildScene();
-
-
-        var not_collapsed = ['429', '422', '432', '472', '122', '184', '189', '325']
-        var collapsed = opt_cages[cage_code][2];
-        if (not_collapsed.indexOf(cage_code) >= 0) {
-            collapsed = 0;
-        }
-
-        if (collapsed == parseInt(prediction)) {
-            $('.title').html('CORRECT');
-        }
-        else {
-            $('.title').html('INCORRECT');
-        }
-
-        var volume =4/3 * 3.14 * Math.pow(opt_cages[cage_code][1]*0.5, 3);
-        volume = volume.toFixed(1);
-        if (volume < 0 ) {
-            volume = 0;
-        }
-
-        var mols = Math.round(volume / 25.24) ;
-        var info_str = "Pore volume = <b>" + String(volume) + "</b> \u{212B}<sup>3</sup> and <b>";
-        info_str += String(mols) + "</b> N<sub>2</sub> molecules can fit inside it."
-
-        $('#cage_info').html(info_str);
-
 
     });
 

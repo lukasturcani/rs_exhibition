@@ -9,33 +9,17 @@
     <script type="text/javascript" src="heavycages"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            var prev_data = window.location.href.split('#');
-            prev_data = prev_data[prev_data.length-1];
+            // Place the molecular structure data from the "heavycages" file
+            // into the text field.
+            var prev_data = window.location.href.split('#')[1];
+            $('#1_src').html(unopt_cages[prev_data][0]);
+            // Make the "no" and "yes" buttons add 0 and 1 to the molecule
+            // identifier, respectively. Make them into hyperlinks to the next
+            // page. 
             $('#no_button').wrap('<a href="assembler6.html#' + prev_data +'0"></a>');
             $('#yes_button').wrap('<a href="assembler6.html#' + prev_data +'1"></a>');
-
-
-            $('#1_src').html(unopt_cages[prev_data][0]);
+            // Render the molecule.
             var cage = new GLmol('1');
-            $('#next_button4').wrap('<a href="assembler5.html#' + prev_data +'"></a>');
-
-
-            $(document).on("click touchstart", "#vdw_button", function() {
-                if ($(this).hasClass('selectedToggle')) {
-                    cage.rebuildScene();
-                }
-                else {
-                    var all = cage.getAllAtoms();
-                    var hetatm = cage.removeSolvents(cage.getHetatms(all));
-                    cage.drawAtomsAsSphere(cage.modelGroup, hetatm, cage.sphereRadius);
-                    cage.show();
-                }
-
-                $(this).toggleClass("selectedToggle");
-
-            });
-
-
             var atom = {};
             atom.serial = cage.atoms.length;
             atom.radius = 0.5*unopt_cages[prev_data][1];
@@ -48,7 +32,6 @@
             atom.bondOrder = [];
             cage.atoms[atom.serial] = atom;
             cage.rebuildScene();
-
 
         });
 

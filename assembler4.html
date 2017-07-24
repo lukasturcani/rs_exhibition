@@ -9,29 +9,15 @@
     <script type="text/javascript" src="heavycages"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            var prev_data = window.location.href.split('#');
-            prev_data = prev_data[prev_data.length-1];
+            // Place the molecular structure data from the "heavycages" file
+            // into the text field.
+            var prev_data = window.location.href.split('#')[1];
             $('#1_src').html(unopt_cages[prev_data][0]);
-            var cage = new GLmol('1');
+            // Convert the "next" button into a hyperlink.
             $('#next_button4').wrap('<a href="assembler5.html#' + prev_data +'"></a>');
-
-
-            $(document).on("click touchstart", "#vdw_button", function() {
-                if ($(this).hasClass('selectedToggle')) {
-                    cage.rebuildScene();
-                }
-                else {
-                    var all = cage.getAllAtoms();
-                    var hetatm = cage.removeSolvents(cage.getHetatms(all));
-                    cage.drawAtomsAsSphere(cage.modelGroup, hetatm, cage.sphereRadius);
-                    cage.show();
-                }
-
-                $(this).toggleClass("selectedToggle");
-
-            });
-
-
+            
+            // Render the molecule.
+            var cage = new GLmol('1');
             var atom = {};
             atom.serial = cage.atoms.length;
             atom.radius = 0.5*unopt_cages[prev_data][1];
