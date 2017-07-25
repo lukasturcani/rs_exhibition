@@ -1,9 +1,10 @@
 """
 Creates the "heavycages" file.
 
-The "heavycages" file is holds a javascript object where each attribute
-name is the ID of a cage and the value is a string holding the
-molecular structure in .mol V3000 format.
+The "heavycages" file is holds a JavaScript object where each attribute
+name is the ID of a cage and the value is a tuple. The first value of
+the tuple is a string holding the molecular structure in .mol V3000
+format and the second value is the cavity size of the cage.
 
 """
 
@@ -23,7 +24,7 @@ def make_cage(topology, bb_file, lk_file):
 
     Parameters
     ----------
-    topology : :class:`_CageTopology`
+    topology : :class:`type`
         The topology of the cage.
 
     bb_file : :class:`str`
