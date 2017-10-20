@@ -1,5 +1,7 @@
 Download the project and open assembler1.html in a browser. Should be relatively self explanatory.
 
+Live demo: https://lukasturcani.github.io/cage_assembler/assembler1.html
+
 Files.
 ------
 :assembler[1-6].html: These files hold the GUI.
