@@ -288,22 +288,20 @@ let LMOL = (function() {
 
             if (atomBlock) {
                 let lineData = lines[i].split(/(?: )+/g);
-                let atom = new Atom(parseInt(lineData[2]),
+                atoms.push(new Atom(parseInt(lineData[2]),
                                     lineData[3],
                                     parseFloat(lineData[4]),
                                     parseFloat(lineData[5]),
-                                    parseFloat(lineData[6]))
-                atoms.push(atom);
+                                    parseFloat(lineData[6])));
                 continue;
             }
 
             if (bondBlock) {
                 let lineData = lines[i].split(/(?: )+/g);
-                let bond = new Bond(parseInt(lineData[2]),
+                bonds.push(new Bond(parseInt(lineData[2]),
                                     atoms[parseInt(lineData[4])-1],
                                     atoms[parseInt(lineData[5])-1],
-                                    parseInt(lineData[3]));
-                bonds.push(bond);
+                                    parseInt(lineData[3])));
                 continue;
             }
         }
