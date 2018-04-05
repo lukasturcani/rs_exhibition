@@ -2,8 +2,8 @@
 <html>
   <head>
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="js/Three49custom.js"></script>
-    <script type="text/javascript" src="js/GLmol.js"></script>
+    <script type="text/javascript" src="js/three.js"></script>
+    <script type="text/javascript" src="js/lmol.js"></script>
     <script type="text/javascript" src="assembler.js"></script>
     <script type="text/javascript" src="optcages"></script>
     <script type="text/javascript">
@@ -12,26 +12,11 @@
         // into the text field.
         var prev_data = window.location.href.split('#')[1];
         // The ID of the cage the user selected.
-        cage_code = prev_data.slice(0,3);
+        let cage_code = prev_data.slice(0,3);
         // Check if the user predicted the cage to be collapsed or not from the
         // hyperlink.
         prediction = prev_data.slice(3,4);
-        $('#1_src').html(opt_cages[cage_code][0]);
 
-        // Render the molecule.
-        var cage = new GLmol('1');
-        var atom = {};
-        atom.serial = cage.atoms.length;
-        atom.radius = 0.5*opt_cages[cage_code][1];
-        atom.x = 0;
-        atom.y = 0;
-        atom.z = 0;
-        atom.hetflag = true;
-        atom.atom = atom.elem = 'CL';
-        atom.bonds = [];
-        atom.bondOrder = [];
-        cage.atoms[atom.serial] = atom;
-        cage.rebuildScene();
 
         // Some cages were incorrectly judged to be collapsed by the algo,
         // their ID are listed here.
@@ -63,23 +48,6 @@
         info_str += String(mols) + "</b> N<sub>2</sub> molecules can fit inside it."
         $('#cage_info').html(info_str);
 
-        /**
-         * Change the rendering when the "Fill Space" button is pressed.
-         */
-        $(document).on("click touchstart", "#vdw_button", function() {
-            if ($(this).hasClass('selectedToggle')) {
-                cage.rebuildScene();
-            }
-            else {
-                var all = cage.getAllAtoms();
-                var hetatm = cage.removeSolvents(cage.getHetatms(all));
-                cage.drawAtomsAsSphere(cage.modelGroup, hetatm, cage.sphereRadius);
-                cage.show();
-            }
-
-            $(this).toggleClass("selectedToggle");
-
-        });
 
     });
 
@@ -119,8 +87,15 @@
 
           <div class="glmol_div main_div final_page">
             <div id="1" class="glmol_window">
-              <textarea id="1_src">
-              </textarea>
+              <script>
+                  // Place the molecular structure data from the "optcages" file
+                  // into the text field.
+                  let prev_data = window.location.href.split('#')[1];
+                  // The ID of the cage the user selected.
+                  let cage_code = prev_data.slice(0,3);
+                  console.log(opt_cages[cage_code][0]);
+                 LMOL.drawMol(opt_cages[cage_code][0], '1');
+              </script>
             </div>
           </div>
 
