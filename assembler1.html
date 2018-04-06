@@ -2,19 +2,9 @@
 <html>
   <head>
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="js/Three49custom.js"></script>
-    <script type="text/javascript" src="js/GLmol.js"></script>
+    <script type="text/javascript" src="js/three.js"></script>
+    <script type="text/javascript" src="js/lmol.js">let molStr;</script>
     <script type="text/javascript" src="assembler.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var t1 = new GLmol('1');
-            var t2 = new GLmol('2');
-            var t3 = new GLmol('3');
-            var t4 = new GLmol('4');
-            var t5 = new GLmol('5');
-        });
-    </script>
-
     <link rel="stylesheet" type="text/css" href="assembler.css"/>
 
     <title>Cage Assembler</title>
@@ -57,9 +47,10 @@
 
         <div class="filler"></div>
 
-        <div class="glmol_div topology_div">
-          <div id="1" class="glmol_window selectable top">
-            <textarea id="1_src">
+        <div class="lmol_div topology_div">
+          <div id="1" class="lmol_window selectable top">
+            <script>
+                molStr = `
 
                 twoplusthree
 
@@ -82,16 +73,16 @@
                 M  V30 6 1 2 5
                 M  V30 END BOND
                 M  V30 END CTAB
-                M  END
-
-            </textarea>
+                M  END`
+                LMOL.drawMol(molStr, '1');
+            </script>
           </div>
         </div>
 
-        <div class="glmol_div topology_div">
-          <div id="2" class="glmol_window selectable top">
-            <textarea id="2_src">
-
+        <div class="lmol_div topology_div">
+          <div id="2" class="lmol_window selectable top">
+            <script>
+                molStr = `
                 tetrahdedron
 
                   0  0  0     0  0            999 V3000
@@ -112,8 +103,11 @@
                 M  V30 6 1 3 4
                 M  V30 END BOND
                 M  V30 END CTAB
-                M  END
-            </textarea>
+                M  END`;
+
+                LMOL.drawMol(molStr, '2');
+
+            </script>
           </div>
         </div>
 
@@ -125,10 +119,10 @@
 
           <div class="filler"></div>
 
-        <div class="glmol_div topology_div">
-          <div id="3" class="glmol_window selectable top">
-            <textarea id="3_src">
-
+        <div class="lmol_div topology_div">
+          <div id="3" class="lmol_window selectable top">
+            <script>
+                molStr =`
                 eightplustwelve
 
                 0  0  0     0  0            999 V3000
@@ -159,14 +153,17 @@
                 M  V30 12 1 6 8
                 M  V30 END BOND
                 M  V30 END CTAB
-                M  END
-            </textarea>
+                M  END`
+
+                LMOL.drawMol(molStr, '3');
+            </script>
           </div>
         </div>
 
-        <div class="glmol_div topology_div">
-          <div id="4" class="glmol_window selectable top">
-            <textarea id="4_src">
+        <div class="lmol_div topology_div">
+          <div id="4" class="lmol_window selectable top">
+            <script>
+                molStr = `
 
                 dodecahderon
 
@@ -228,9 +225,11 @@
                 M  V30 30 1 12 14
                 M  V30 END BOND
                 M  V30 END CTAB
-                M  END
+                M  END`;
 
-            </textarea>
+                LMOL.drawMol(molStr, '4');
+
+            </script>
           </div>
         </div>
       </div>
