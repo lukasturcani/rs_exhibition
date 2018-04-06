@@ -2,22 +2,10 @@
 <html>
   <head>
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="js/Three49custom.js"></script>
-    <script type="text/javascript" src="js/GLmol.js"></script>
+    <script type="text/javascript" src="js/three.js"></script>
+    <script type="text/javascript" src="js/lmol.js">let molStr;</script>
     <script type="text/javascript" src="assembler.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var t1 = new GLmol('1');
-        var t2 = new GLmol('2');
-        var t3 = new GLmol('3');
-        var t4 = new GLmol('4');
-        var t5 = new GLmol('5');
-        var t6 = new GLmol('6');
-        var t7 = new GLmol('7');
-        var t8 = new GLmol('8');
-        var t9 = new GLmol('9');
-    });
-</script>
+
     <link rel="stylesheet" type="text/css" href="assembler.css"/>
 
     <title>Cage Assembler</title>
@@ -46,9 +34,9 @@
 
     <div id="windows_div">
 
-      <div class="glmol_div">
-        <div id="1" class="glmol_window selectable lk">
-          <textarea id="1_src">
+      <div class="lmol_div">
+        <div id="1" class="lmol_window selectable lk">
+          <script>molStr = `
 
                  0.mol
 
@@ -57,13 +45,13 @@
                 M  V30 COUNTS 16 16 0 0 0
                 M  V30 BEGIN ATOM
                 M  V30 1 N -2.624 -1.371 2.628 0
-                M  V30 2 Au -1.99 -0.746 1.549 0
-                M  V30 3 Au -2.726 0.022 0.647 0
-                M  V30 4 Au -2.086 0.745 -0.366 0
-                M  V30 5 Au -0.698 0.712 -0.497 0
+                M  V30 2 Dummy4 -1.99 -0.746 1.549 0
+                M  V30 3 Dummy4 -2.726 0.022 0.647 0
+                M  V30 4 Dummy4 -2.086 0.745 -0.366 0
+                M  V30 5 Dummy4 -0.698 0.712 -0.497 0
                 M  V30 6 N -0.056 1.526 -1.437 0
-                M  V30 7 Au 0.043 0.043 0.478 0
-                M  V30 8 Au -0.598 -0.68 1.492 0
+                M  V30 7 Dummy4 0.043 0.043 0.478 0
+                M  V30 8 Dummy4 -0.598 -0.68 1.492 0
                 M  V30 9 H -3.585 -1.637 2.439 0
                 M  V30 10 H -2.087 -2.131 3.034 0
                 M  V30 11 H -3.808 0.078 0.731 0
@@ -94,13 +82,13 @@
                 M  V30 END CTAB
                 M  END
 
-          </textarea>
+          `; LMOL.drawMol(molStr, '1');</script>
         </div>
       </div>
 
-      <div class="glmol_div">
-        <div id="2" class="glmol_window selectable lk">
-          <textarea id="2_src">
+      <div class="lmol_div">
+        <div id="2" class="lmol_window selectable lk">
+          <script>molStr = `
 
                 1.mol
 
@@ -109,19 +97,19 @@
                 M  V30 COUNTS 26 27 0 0 0
                 M  V30 BEGIN ATOM
                 M  V30 1 N 1.239 1.622 4.917 0
-                M  V30 2 Au 0.918 1.384 3.575 0
-                M  V30 3 Au 0.112 0.301 3.225 0
-                M  V30 4 Au -0.312 0.122 1.903 0
-                M  V30 5 Au 0.025 1.046 0.903 0
-                M  V30 6 Au -0.419 0.861 -0.488 0
-                M  V30 7 Au -1.77 0.646 -0.797 0
-                M  V30 8 Au -2.188 0.47 -2.122 0
-                M  V30 9 Au -1.276 0.546 -3.175 0
+                M  V30 2 Dummy4 0.918 1.384 3.575 0
+                M  V30 3 Dummy4 0.112 0.301 3.225 0
+                M  V30 4 Dummy4 -0.312 0.122 1.903 0
+                M  V30 5 Dummy4 0.025 1.046 0.903 0
+                M  V30 6 Dummy4 -0.419 0.861 -0.488 0
+                M  V30 7 Dummy4 -1.77 0.646 -0.797 0
+                M  V30 8 Dummy4 -2.188 0.47 -2.122 0
+                M  V30 9 Dummy4 -1.276 0.546 -3.175 0
                 M  V30 10 N -1.68 0.253 -4.482 0
-                M  V30 11 Au 0.077 0.699 -2.872 0
-                M  V30 12 Au 0.499 0.876 -1.549 0
-                M  V30 13 Au 0.786 2.163 1.278 0
-                M  V30 14 Au 1.207 2.34 2.601 0
+                M  V30 11 Dummy4 0.077 0.699 -2.872 0
+                M  V30 12 Dummy4 0.499 0.876 -1.549 0
+                M  V30 13 Dummy4 0.786 2.163 1.278 0
+                M  V30 14 Dummy4 1.207 2.34 2.601 0
                 M  V30 15 H 1.283 0.78 5.482 0
                 M  V30 16 H 2.054 2.214 5.043 0
                 M  V30 17 H -0.194 -0.42 3.978 0
@@ -167,13 +155,13 @@
                 M  V30 END CTAB
                 M  END
 
-          </textarea>
+          `; LMOL.drawMol(molStr, '2');</script>
         </div>
       </div>
 
-      <div class="glmol_div">
-        <div id="3" class="glmol_window selectable lk">
-          <textarea id="3_src">
+      <div class="lmol_div">
+        <div id="3" class="lmol_window selectable lk">
+          <script>molStr = `
 
               7.pdb
                OpenBabel05191714523D
@@ -182,21 +170,21 @@
               M  V30 COUNTS 28 30 0 0 0
               M  V30 BEGIN ATOM
               M  V30 1 N -1.349 0.731 0.022 0
-              M  V30 2 Ge -0.197 0.065 -0.503 0
-              M  V30 3 Ge 0.586 0.676 -1.527 0
-              M  V30 4 Ge 1.786 0.048 -1.95 0
-              M  V30 5 Ge 2.552 0.684 -2.962 0
-              M  V30 6 Ge 2.164 1.889 -3.548 0
-              M  V30 7 Ge 0.996 2.501 -3.135 0
-              M  V30 8 Ge 0.223 1.904 -2.139 0
-              M  V30 9 Ge 2.182 -1.181 -1.343 0
+              M  V30 2 Dummy4 -0.197 0.065 -0.503 0
+              M  V30 3 Dummy4 0.586 0.676 -1.527 0
+              M  V30 4 Dummy4 1.786 0.048 -1.95 0
+              M  V30 5 Dummy4 2.552 0.684 -2.962 0
+              M  V30 6 Dummy4 2.164 1.889 -3.548 0
+              M  V30 7 Dummy4 0.996 2.501 -3.135 0
+              M  V30 8 Dummy4 0.223 1.904 -2.139 0
+              M  V30 9 Dummy4 2.182 -1.181 -1.343 0
               M  V30 10 N 3.44 -1.778 -1.67 0
-              M  V30 11 Ge 1.462 -1.716 -0.239 0
-              M  V30 12 Ge 1.893 -2.876 0.448 0
-              M  V30 13 Ge 1.183 -3.408 1.524 0
-              M  V30 14 Ge 0.013 -2.795 1.938 0
-              M  V30 15 Ge -0.438 -1.655 1.272 0
-              M  V30 16 Ge 0.269 -1.091 0.182 0
+              M  V30 11 Dummy4 1.462 -1.716 -0.239 0
+              M  V30 12 Dummy4 1.893 -2.876 0.448 0
+              M  V30 13 Dummy4 1.183 -3.408 1.524 0
+              M  V30 14 Dummy4 0.013 -2.795 1.938 0
+              M  V30 15 Dummy4 -0.438 -1.655 1.272 0
+              M  V30 16 Dummy4 0.269 -1.091 0.182 0
               M  V30 17 H -1.06 1.357 0.771 0
               M  V30 18 H -1.853 1.247 -0.69 0
               M  V30 19 H 3.485 0.251 -3.311 0
@@ -245,13 +233,13 @@
               M  V30 END CTAB
               M  END
 
-          </textarea>
+          `; LMOL.drawMol(molStr, '3');</script>
         </div>
       </div>
 
-      <div class="glmol_div">
-        <div id="4" class="glmol_window selectable lk">
-          <textarea id="4_src">
+      <div class="lmol_div">
+        <div id="4" class="lmol_window selectable lk">
+          <script>molStr = `
 
         82.mol
 
@@ -260,8 +248,8 @@
         M  V30 COUNTS 12 11 0 0 0
         M  V30 BEGIN ATOM
         M  V30 1 N -0.021 0.796 0.954 0
-        M  V30 2 Au -0.176 1.226 -0.437 0
-        M  V30 3 Au -0.366 0.039 -1.398 0
+        M  V30 2 Dummy4 -0.176 1.226 -0.437 0
+        M  V30 3 Dummy4 -0.366 0.039 -1.398 0
         M  V30 4 N -0.512 0.481 -2.782 0
         M  V30 5 H 0.752 0.137 1.026 0
         M  V30 6 H -0.857 0.288 1.243 0
@@ -288,13 +276,13 @@
         M  V30 END CTAB
         M  END
 
-          </textarea>
+          `; LMOL.drawMol(molStr, '4');</script>
         </div>
       </div>
 
-      <div class="glmol_div">
-        <div id="5" class="glmol_window selectable lk">
-          <textarea id="5_src">
+      <div class="lmol_div">
+        <div id="5" class="lmol_window selectable lk">
+          <script>molStr = `
 
           83.mol
 
@@ -303,10 +291,10 @@
           M  V30 COUNTS 15 14 0 0 1
           M  V30 BEGIN ATOM
           M  V30 1 N -1.559 -1.631 1.969 0
-          M  V30 2 Au -1.488 -1.819 0.515 0
-          M  V30 3 Au -1.806 -0.537 -0.298 0
+          M  V30 2 Dummy4 -1.488 -1.819 0.515 0
+          M  V30 3 Dummy4 -1.806 -0.537 -0.298 0
           M  V30 4 N -3.004 0.141 0.225 0
-          M  V30 5 Au -0.631 0.442 -0.292 0
+          M  V30 5 Dummy4 -0.631 0.442 -0.292 0
           M  V30 6 H -0.966 -0.851 2.241 0
           M  V30 7 H -2.516 -1.346 2.184 0
           M  V30 8 H -0.495 -2.198 0.249 0
@@ -337,13 +325,13 @@
           M  V30 END CTAB
           M  END
 
-          </textarea>
+          `; LMOL.drawMol(molStr, '5');</script>
         </div>
       </div>
 
-      <div class="glmol_div">
-        <div id="6" class="glmol_window selectable lk">
-          <textarea id="6_src">
+      <div class="lmol_div">
+        <div id="6" class="lmol_window selectable lk">
+          <script>molStr = `
 
                    RDKit          3D
 
@@ -351,19 +339,19 @@
               M  V30 BEGIN CTAB
               M  V30 COUNTS 22 22 0 0 0
               M  V30 BEGIN ATOM
-              M  V30 1 Au -0.1583 -0.1679 -0.0807 0
+              M  V30 1 Dummy4 -0.1583 -0.1679 -0.0807 0
               M  V30 2 H 0.5314 0.6191 0.2272 0
-              M  V30 3 Au -0.8537 -0.7585 1.1550 0
+              M  V30 3 Dummy4 -0.8537 -0.7585 1.1550 0
               M  V30 4 H -0.8945 0.3034 -0.7329 0
               M  V30 5 H -1.3533 0.0306 1.7179 0
-              M  V30 6 Au 0.1519 -1.4906 2.0557 0
+              M  V30 6 Dummy4 0.1519 -1.4906 2.0557 0
               M  V30 7 H -1.6332 -1.4539 0.8402 0
               M  V30 8 H 0.8518 -0.7693 2.4790 0
-              M  V30 9 Au 0.9146 -2.5773 1.2800 0
+              M  V30 9 Dummy4 0.9146 -2.5773 1.2800 0
               M  V30 10 H -0.3741 -1.9397 2.8990 0
-              M  V30 11 Au 1.6199 -1.9776 0.0513 0
+              M  V30 11 Dummy4 1.6199 -1.9776 0.0513 0
               M  V30 12 H 0.1856 -3.3166 0.9415 0
-              M  V30 13 Au 0.6078 -1.2534 -0.8522 0
+              M  V30 13 Dummy4 0.6078 -1.2534 -0.8522 0
               M  V30 14 H 2.3482 -1.2377 0.3890 0
               M  V30 15 H -0.1022 -1.9741 -1.2614 0
               M  V30 16 H 1.1158 -0.8024 -1.7052 0
@@ -403,13 +391,13 @@
 
               $$$$
 
-          </textarea>
+          `; LMOL.drawMol(molStr, '6');</script>
         </div>
       </div>
 
-      <div class="glmol_div">
-        <div id="7" class="glmol_window selectable lk">
-          <textarea id="7_src">
+      <div class="lmol_div">
+        <div id="7" class="lmol_window selectable lk">
+          <script>molStr = `
 
       89.mol
 
@@ -418,11 +406,11 @@
       M  V30 COUNTS 19 19 0 0 1
       M  V30 BEGIN ATOM
       M  V30 1 N 0.075 1.204 -2.347 0
-      M  V30 2 Au 0.585 1.43 -0.988 0
-      M  V30 3 Au 2.035 0.945 -0.893 0
-      M  V30 4 Au 1.954 -0.548 -0.561 0
-      M  V30 5 Au 0.501 -0.83 -0.165 0
-      M  V30 6 Au -0.145 0.543 0.05 0
+      M  V30 2 Dummy4 0.585 1.43 -0.988 0
+      M  V30 3 Dummy4 2.035 0.945 -0.893 0
+      M  V30 4 Dummy4 1.954 -0.548 -0.561 0
+      M  V30 5 Dummy4 0.501 -0.83 -0.165 0
+      M  V30 6 Dummy4 -0.145 0.543 0.05 0
       M  V30 7 N 0.069 1.012 1.426 0
       M  V30 8 H -0.894 1.521 -2.391 0
       M  V30 9 H 0.594 1.79 -2.999 0
@@ -461,13 +449,13 @@
       M  V30 END CTAB
       M  END
 
-          </textarea>
+          `; LMOL.drawMol(molStr, '7');</script>
         </div>
       </div>
 
-      <div class="glmol_div">
-        <div id="8" class="glmol_window selectable lk">
-          <textarea id="8_src">
+      <div class="lmol_div">
+        <div id="8" class="lmol_window selectable lk">
+          <script>molStr = `
 
       93.mol
 
@@ -476,12 +464,12 @@
       M  V30 COUNTS 20 20 0 0 1
       M  V30 BEGIN ATOM
       M  V30 1 N -1.535 -0.79 0.832 0
-      M  V30 2 Au -0.102 -1.122 0.962 0
-      M  V30 3 Au 0.63 -0.101 1.855 0
-      M  V30 4 Au 2.126 -0.256 1.815 0
-      M  V30 5 Au 2.764 -0.984 0.885 0
-      M  V30 6 Au 2.053 -1.687 -0.24 0
-      M  V30 7 Au 0.599 -1.208 -0.42 0
+      M  V30 2 Dummy4 -0.102 -1.122 0.962 0
+      M  V30 3 Dummy4 0.63 -0.101 1.855 0
+      M  V30 4 Dummy4 2.126 -0.256 1.815 0
+      M  V30 5 Dummy4 2.764 -0.984 0.885 0
+      M  V30 6 Dummy4 2.053 -1.687 -0.24 0
+      M  V30 7 Dummy4 0.599 -1.208 -0.42 0
       M  V30 8 N -0.139 -2.079 -1.358 0
       M  V30 9 H -1.977 -1.571 0.344 0
       M  V30 10 H -1.954 -0.778 1.761 0
@@ -522,13 +510,13 @@
       M  END
 
 
-          </textarea>
+          `; LMOL.drawMol(molStr, '8');</script>
         </div>
       </div>
 
-      <div class="glmol_div">
-        <div id="9" class="glmol_window selectable lk">
-          <textarea id="9_src">
+      <div class="lmol_div">
+        <div id="9" class="lmol_window selectable lk">
+          <script>molStr = `
 
       100.mol
 
@@ -537,21 +525,21 @@
       M  V30 COUNTS 32 33 0 0 1
       M  V30 BEGIN ATOM
       M  V30 1 N 3.191 0.616 0.78 0
-      M  V30 2 Au 1.846 0 0.693 0
-      M  V30 3 Au 1.291 0.106 -0.719 0
-      M  V30 4 Au 1.056 -1.058 -1.466 0
-      M  V30 5 Au 0.532 -0.985 -2.758 0
-      M  V30 6 Au 0.236 0.253 -3.323 0
-      M  V30 7 Au 0.468 1.419 -2.598 0
-      M  V30 8 Au 0.992 1.348 -1.305 0
-      M  V30 9 Au 0.874 0.588 1.79 0
+      M  V30 2 Dummy4 1.846 0 0.693 0
+      M  V30 3 Dummy4 1.291 0.106 -0.719 0
+      M  V30 4 Dummy4 1.056 -1.058 -1.466 0
+      M  V30 5 Dummy4 0.532 -0.985 -2.758 0
+      M  V30 6 Dummy4 0.236 0.253 -3.323 0
+      M  V30 7 Dummy4 0.468 1.419 -2.598 0
+      M  V30 8 Dummy4 0.992 1.348 -1.305 0
+      M  V30 9 Dummy4 0.874 0.588 1.79 0
       M  V30 10 N 1.581 0.796 3.08 0
-      M  V30 11 Au -0.373 -0.257 2 0
-      M  V30 12 Au -1.639 0.29 1.737 0
-      M  V30 13 Au -2.796 -0.468 1.923 0
-      M  V30 14 Au -2.706 -1.782 2.376 0
-      M  V30 15 Au -1.458 -2.34 2.643 0
-      M  V30 16 Au -0.299 -1.584 2.457 0
+      M  V30 11 Dummy4 -0.373 -0.257 2 0
+      M  V30 12 Dummy4 -1.639 0.29 1.737 0
+      M  V30 13 Dummy4 -2.796 -0.468 1.923 0
+      M  V30 14 Dummy4 -2.706 -1.782 2.376 0
+      M  V30 15 Dummy4 -1.458 -2.34 2.643 0
+      M  V30 16 Dummy4 -0.299 -1.584 2.457 0
       M  V30 17 H 3.134 1.565 0.414 0
       M  V30 18 H 3.36 0.758 1.782 0
       M  V30 19 H 2.012 -1.06 0.921 0
@@ -607,7 +595,7 @@
       M  V30 END CTAB
       M  END
 
-          </textarea>
+          `; LMOL.drawMol(molStr, '9');</script>
         </div>
       </div>
     </div>

@@ -83,17 +83,16 @@
 
     <div id="windows_div">
 
-      <div id="glmol_and_content">
+      <div id="lmol_and_content">
 
-          <div class="glmol_div main_div final_page">
-            <div id="1" class="glmol_window">
+          <div class="lmol_div main_div final_page">
+            <div id="1" class="lmol_window">
               <script>
                   // Place the molecular structure data from the "optcages" file
                   // into the text field.
                   let prev_data = window.location.href.split('#')[1];
                   // The ID of the cage the user selected.
                   let cage_code = prev_data.slice(0,3);
-                  console.log(opt_cages[cage_code][0]);
                  LMOL.drawMol(opt_cages[cage_code][0], '1');
               </script>
             </div>

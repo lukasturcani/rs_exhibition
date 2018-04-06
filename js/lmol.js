@@ -1,9 +1,11 @@
 let LMOL = (function() {
-    let backgroundColor = 0xFFFFFF;
+    let backgroundColor = 0x424242;
     let sphereScale = 0.5;
     let elementColors = {
-        "X": 0xFFFFFF,
-        "Y": 0x909090,
+        "Dummy1": 0xFFFFFF,
+        "Dummy2": 0xFFFFFF,
+        "Dummy3": 0xFF4D4D,
+        "Dummy4": 0x6666FF,
         "H": 0xFFFFFF,
         "He": 0xD9FFFF,
         "Li": 0xCC80FF,
@@ -116,6 +118,10 @@ let LMOL = (function() {
 
     // E Clementi, D L Raimondi, W P Reinhardt (1963) J Chem Phys. 38:2686
     let elementSizes = {
+        "Dummy1": 1,
+        "Dummy2": 0.1,
+        "Dummy3": 0.67,
+        "Dummy4": 0.67,
         "H": 0.53,
         "He": 0.31,
         "Li": 1.67,
@@ -257,6 +263,16 @@ let LMOL = (function() {
             this.atoms = atoms;
             this.bonds = bonds;
         }
+
+        centroid() {
+            let centroid = new THREE.Vector3(0, 0, 0);
+            for (let atom of this.atoms) {
+                let coord = new THREE.Vector3(atom.x, atom.y, atom.z);
+                centroid.add(coord);
+            }
+            return centroid.divideScalar(this.atoms.length);
+        }
+
     }
 
 
@@ -404,7 +420,11 @@ let LMOL = (function() {
         scene.userData.container = container;
 
         let camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 1000);
-        camera.position.z = 5;
+        let zValues = mol.atoms.map(x => x.z);
+        let molCenter = mol.centroid();
+        camera.position.x = molCenter.x;
+        camera.position.y = molCenter.y;
+        camera.position.z = molCenter.z + Math.max(...zValues) + 10;
         scene.userData.camera = camera;
 
         let light = new THREE.DirectionalLight(0xFFFFFF);

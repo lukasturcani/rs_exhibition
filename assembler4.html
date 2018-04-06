@@ -2,36 +2,10 @@
 <html>
   <head>
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="js/Three49custom.js"></script>
-    <script type="text/javascript" src="js/GLmol.js"></script>
+    <script type="text/javascript" src="js/three.js"></script>
+    <script type="text/javascript" src="js/lmol.js"></script>
     <script type="text/javascript" src="assembler.js"></script>
     <script type="text/javascript" src="heavycages"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Place the molecular structure data from the "heavycages" file
-            // into the text field.
-            var prev_data = window.location.href.split('#')[1];
-            $('#1_src').html(unopt_cages[prev_data][0]);
-            // Convert the "next" button into a hyperlink.
-            $('#next_button4').wrap('<a href="assembler5.html#' + prev_data +'"></a>');
-
-            // Render the molecule.
-            var cage = new GLmol('1');
-            var atom = {};
-            atom.serial = cage.atoms.length;
-            atom.radius = 0.5*unopt_cages[prev_data][1];
-            atom.x = 0;
-            atom.y = 0;
-            atom.z = 0;
-            atom.hetflag = true;
-            atom.atom = atom.elem = 'CL';
-            atom.bonds = [];
-            atom.bondOrder = [];
-            cage.atoms[atom.serial] = atom;
-            cage.rebuildScene();
-
-        });
-    </script>
 
     <link rel="stylesheet" type="text/css" href="assembler.css"/>
 
@@ -68,10 +42,21 @@
 
     <div id="windows_div">
 
-      <div class="glmol_div main_div full">
-        <div id="1" class="glmol_window">
-          <textarea id="1_src">
-          </textarea>
+      <div class="lmol_div main_div full">
+        <div id="1" class="lmol_window">
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    // Place the molecular structure data from the "heavycages" file
+                    // into the text field.
+                    var prev_data = window.location.href.split('#')[1];
+                    // Convert the "next" button into a hyperlink.
+                    $('#next_button4').wrap('<a href="assembler5.html#' + prev_data +'"></a>');
+
+                    // Render the molecule.
+                    LMOL.drawMol(unopt_cages[prev_data][0], '1');
+
+                });
+            </script>
         </div>
       </div>
 
