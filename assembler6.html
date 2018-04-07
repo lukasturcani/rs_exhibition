@@ -106,8 +106,8 @@
                      $(document).on("click touchstart", "#vdw_button", function() {
                          if ($(this).hasClass('selectedToggle')) {
                              scene.remove(mesh);
-                             for (let elem in LMOL.atomSpaceFill) {
-                                 scene.remove(LMOL.atomSpaceFill[elem]);
+                             for (let elem in LMOL.atomsSpaceFill) {
+                                 scene.remove(LMOL.atomsSpaceFill[elem]);
                              }
                          }
                          else {
