@@ -1,4 +1,7 @@
 let LMOL = (function() {
+
+    // Global settings.
+
     let backgroundColor = 0x424242;
     let sphereScale = 0.5;
     let elementColors = {
@@ -216,10 +219,19 @@ let LMOL = (function() {
         "Pu": 1.75,
         "Am": 1.75};
 
+    // Holds the geometry object for an atom of each element. Only one
+    // geometry is created per element.
     let atomGeo = {};
+    // Holds the space filling geometry for an atom of each element.
+    // only one space filling geometry is created per element.
     let atomGeoSpaceFill = {};
+    // Holds the meshes of all created space filling atoms.
     let atomsSpaceFill = [];
+    // Holds the material object for an atom of each element. Only one
+    // materials is created per element.
     let materials = {};
+    // Holds all created scenes.
+    let scenes = [];
 
     class Atom {
         constructor(id, element, x, y, z) {
@@ -278,6 +290,7 @@ let LMOL = (function() {
     }
 
 
+    /** Reads a V3000 MDL MOL file and returns a Molecule object. */
     function parseMOL3000(molStr) {
         let lines = molStr.split('\n')
         let atoms = [];
@@ -328,7 +341,7 @@ let LMOL = (function() {
         return new Molecule(atoms, bonds);
     }
 
-
+    /** Adds meshes of atoms in a mol to the scene. */
     function drawAtoms(mol, scene) {
 
         for (let atom of mol.atoms) {
@@ -348,20 +361,40 @@ let LMOL = (function() {
     }
 
 
+    /**
+     * Adds meshes of the bonds in a mol to the scene.
+     *
+     * Two meshes per bond are made, each going from the center of the
+     * bond to an atom. This allows the bond to have two different colors,
+     * for cases where the bond links atoms of two different elements.
+     */
     function drawBonds(mol, scene) {
+        // Gap between meshes for cases where bond order is greater than 1.
         let gapSize = 0.2;
 
         for (let bond of mol.bonds) {
+            // When bond order is greater than 1, each mesh bond be made
+            // smaller.
             let bondSize = 0.1/bond.order;
             let geo = new THREE.CylinderBufferGeometry(bondSize, bondSize, bond.length()/2, 30)
             geo.rotateX(Math.PI/2);
 
+            // Create two meshes per bond, one going from center to atom1
+            // and one going from center to atom2.
             let meshes = [];
             for (let i = 0; i < bond.order; i++) {
                 meshes.push(new THREE.Mesh(geo, materials[bond.atom1.element]));
                 meshes.push(new THREE.Mesh(geo, materials[bond.atom2.element]));
             }
 
+            // When bond order is greater than 1, each component bond must be translated
+            // to be able to see a double, triple etc. bond. offsets,
+            // will holds things like, [-1, 1] for a double bond and
+            // [-1, 0, 1] for a triple bond. This means that in the
+            // double bond case one bond is offset in each direction from
+            // the center while in the triple bond case one bond is
+            // also offset in each direction and one is left in the
+            // center.
             let offsets = [];
             for (let i = 1; i < Math.floor(bond.order/2)+1; i++) {
                 offsets.push(i, -i)
@@ -395,8 +428,6 @@ let LMOL = (function() {
     }
 
 
-    let scenes = [];
-
     function render() {
         for (let scene of scenes) {
             scene.userData.light.position.copy(scene.userData.camera.position);
@@ -415,6 +446,8 @@ let LMOL = (function() {
     }
     animate();
 
+
+    /** Draws a molecule into DOM element with id elementId. */
     function drawMol(molStr, elementId) {
         let mol = parseMOL3000(molStr);
 
