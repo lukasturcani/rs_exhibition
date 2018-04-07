@@ -48,7 +48,6 @@
         info_str += String(mols) + "</b> N<sub>2</sub> molecules can fit inside it."
         $('#cage_info').html(info_str);
 
-
     });
 
     </script>
@@ -93,7 +92,39 @@
                   let prev_data = window.location.href.split('#')[1];
                   // The ID of the cage the user selected.
                   let cage_code = prev_data.slice(0,3);
-                 LMOL.drawMol(opt_cages[cage_code][0], '1');
+                 let scene = LMOL.drawMol(opt_cages[cage_code][0], '1');
+
+
+                 $(document).ready(function() {
+                     let geometry = new THREE.SphereBufferGeometry(LMOL.sphereScale*opt_cages[cage_code][1], 30, 30);
+                     let material = new THREE.MeshLambertMaterial({color: 0x00FF00});
+                     let mesh = new THREE.Mesh(geometry, material);
+                     mesh.position.set(0, 0, 0);
+                     /**
+                      * Change the rendering when the "Fill Space" button is pressed.
+                      */
+                     $(document).on("click touchstart", "#vdw_button", function() {
+                         if ($(this).hasClass('selectedToggle')) {
+                             scene.remove(mesh);
+                             for (let elem in LMOL.atomGeoSpaceFill) {
+                                 scene.remove(LMOL.atomGeoSpaceFill[elem]);
+                             }
+                         }
+                         else {
+                             scene.add(mesh);
+                             for (let elem in LMOL.atomsSpaceFill) {
+                                 scene.add(LMOL.atomsSpaceFill[elem]);
+                             }
+
+                         }
+                         LMOL.render();
+                         $(this).toggleClass("selectedToggle");
+                     });
+
+                 });
+
+
+
               </script>
             </div>
           </div>

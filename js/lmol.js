@@ -217,6 +217,8 @@ let LMOL = (function() {
         "Am": 1.75};
 
     let atomGeo = {};
+    let atomGeoSpaceFill = {};
+    let atomsSpaceFill = [];
     let materials = {};
 
     class Atom {
@@ -332,14 +334,16 @@ let LMOL = (function() {
         for (let atom of mol.atoms) {
             if (!atomGeo.hasOwnProperty(atom.element)) {
                 atomGeo[atom.element] = new THREE.SphereBufferGeometry(elementSizes[atom.element]*sphereScale, 30, 30);
-                materials[atom.element] = new THREE.MeshToonMaterial({color: elementColors[atom.element]});
+                atomGeoSpaceFill[atom.element] = new THREE.SphereBufferGeometry(2*elementSizes[atom.element], 30, 30);
+                materials[atom.element] = new THREE.MeshLambertMaterial({color: elementColors[atom.element]});
             }
 
             let mesh = new THREE.Mesh(atomGeo[atom.element], materials[atom.element]);
-            mesh.position.x = atom.x;
-            mesh.position.y = atom.y;
-            mesh.position.z = atom.z;
+            let meshSpaceFill = new THREE.Mesh(atomGeoSpaceFill[atom.element], materials[atom.element]);
+            mesh.position.set(atom.x, atom.y, atom.z);
+            meshSpaceFill.position.set(atom.x, atom.y, atom.z);
             scene.add(mesh);
+            atomsSpaceFill.push(meshSpaceFill);
         }
     }
 
@@ -395,8 +399,11 @@ let LMOL = (function() {
 
     function render() {
         for (let scene of scenes) {
+            scene.userData.light.position.copy(scene.userData.camera.position);
+            scene.userData.light.position.add(new THREE.Vector3(0, 0, 10));
             scene.userData.renderer.render(scene, scene.userData.camera);
-            scene.userData.outline.render(scene, scene.userData.camera);
+            // scene.userData.outline.render(scene, scene.userData.camera);
+
         }
     }
 
@@ -427,9 +434,12 @@ let LMOL = (function() {
         camera.position.z = molCenter.z + Math.max(...zValues) + 10;
         scene.userData.camera = camera;
 
-        let light = new THREE.DirectionalLight(0xFFFFFF);
-        light.position.set(0, 1, 1).normalize();
+        let light = new THREE.AmbientLight(0xFFFFFF, 0.5);
         scene.add(light);
+        let light2 = new THREE.DirectionalLight(0xFFFFFF, 0.5);
+        light2.position.copy(camera.position);
+        scene.userData.light = light2;
+        scene.add(light2);
 
         let renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
         renderer.setSize(container.clientWidth, container.clientHeight);
@@ -445,13 +455,13 @@ let LMOL = (function() {
         scene.userData.controls = controls;
         controls.addEventListener('change', render);
 
-
         let outline = new THREE.OutlineEffect(renderer);
         scene.userData.outline = outline;
 
         drawAtoms(mol, scene);
         drawBonds(mol, scene);
         render();
+        return scene;
 
         }
 
@@ -465,5 +475,10 @@ let LMOL = (function() {
             render();
         }
 
-    return {drawMol: drawMol};
+    return {drawMol: drawMol,
+            sphereScale: sphereScale,
+            render: render,
+            atomsSpaceFill: atomsSpaceFill,
+            atomGeo: atomGeo,
+            atomGeoSpaceFill: atomGeoSpaceFill};
 }());
