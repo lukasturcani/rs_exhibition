@@ -459,12 +459,14 @@ let LMOL = (function() {
         let aspectRatio = container.clientWidth / container.clientHeight;
         scene.userData.container = container;
 
-        let camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 1000);
+        let camera = new THREE.PerspectiveCamera(20, aspectRatio, 0.1, 1000);
+        let xValues = mol.atoms.map(x => x.x);
+        let yValues = mol.atoms.map(x => x.y);
         let zValues = mol.atoms.map(x => x.z);
         let molCenter = mol.centroid();
-        camera.position.x = molCenter.x;
-        camera.position.y = molCenter.y;
-        camera.position.z = molCenter.z + Math.max(...zValues) + 10;
+        camera.position.z = 5*Math.max(Math.max(...xValues)-Math.min(...xValues),
+                                       Math.max(...yValues)-Math.min(...yValues),
+                                       Math.max(...zValues)-Math.min(...zValues));
         scene.userData.camera = camera;
 
         let light = new THREE.AmbientLight(0xFFFFFF, 0.5);
